@@ -28,13 +28,14 @@
             android:layout_marginHorizontal="48dp"
             android:layout_marginTop="76dp"
             android:background="@drawable/corner_36_green"
-            android:drawableLeft="@drawable/abc_vector_test"
+            android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="16dp"
             android:elevation="4dp"
             android:ems="10"
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
-            android:padding="8dp" />
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="20dp"/>
 
         <EditText
             android:id="@+id/passwordET"
@@ -43,13 +44,14 @@
             android:layout_marginHorizontal="48dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/corner_36_green"
-            android:drawableLeft="@drawable/abc_vector_test"
+            android:drawableLeft="@drawable/ic_key"
             android:drawablePadding="16dp"
             android:elevation="4dp"
             android:ems="10"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
-            android:padding="8dp" />
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="20dp"/>
 
         <Button
             android:id="@+id/signinBTN"
