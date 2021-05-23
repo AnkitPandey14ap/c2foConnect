@@ -15,7 +15,7 @@ import com.example.c2foconnect.video.model.StoriesDataModel
 import com.example.c2foconnect.video.model.UserBean
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_scrolling.*
+import kotlinx.android.synthetic.main.fragment_root.*
 
 
 class RootFragment : Fragment(),OnPageChangeListener,ViewPager2.PageTransformer {
@@ -26,7 +26,7 @@ class RootFragment : Fragment(),OnPageChangeListener,ViewPager2.PageTransformer 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_scrolling, container, false)
+        return inflater.inflate(R.layout.fragment_root, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

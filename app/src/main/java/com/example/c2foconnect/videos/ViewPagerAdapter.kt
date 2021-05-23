@@ -5,8 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.R
-import kotlinx.android.synthetic.main.activity_video.view.*
-import kotlinx.android.synthetic.main.item_page.view.*
 
 class ViewPagerAdapter : RecyclerView.Adapter<ViewPagerAdapter.PagerVH>() {
     private val colors = intArrayOf(
@@ -21,7 +19,7 @@ class ViewPagerAdapter : RecyclerView.Adapter<ViewPagerAdapter.PagerVH>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH =
-        PagerVH(LayoutInflater.from(parent.context).inflate(R.layout.item_page, parent, false))
+        PagerVH(LayoutInflater.from(parent.context).inflate(R.layout.item_story, parent, false))
 
     override fun getItemCount(): Int = colors.size
 

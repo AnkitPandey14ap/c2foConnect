@@ -25,10 +25,10 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_page.*
+import kotlinx.android.synthetic.main.item_story.*
 
 
-class PagerFragment : Fragment(),Player.EventListener {
+class StoryFragment : Fragment(), Player.EventListener {
 
     val TAG = "PagerFragment";
 
@@ -60,9 +60,9 @@ class PagerFragment : Fragment(),Player.EventListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.item_page, container, false)
+        return inflater.inflate(R.layout.item_story, container, false)
     }
-    
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         arguments?.let {
 //            fragmentContainer.setBackgroundResource(it.getInt("color"))
@@ -71,7 +71,7 @@ class PagerFragment : Fragment(),Player.EventListener {
             data?.let { it1 -> initializePlayer(it1) }
         }
 
-        var user=UserBean();
+        var user = UserBean();
         initView(user)
     }
 
@@ -115,7 +115,7 @@ class PagerFragment : Fragment(),Player.EventListener {
 
 
         simpleExoplayer = SimpleExoPlayer.Builder(activity as Context).build()
-        val randomUrl =data.storyUrl
+        val randomUrl = data.storyUrl
         preparePlayer(randomUrl, "default")
 
 
@@ -126,6 +126,7 @@ class PagerFragment : Fragment(),Player.EventListener {
         simpleExoplayer.playWhenReady = true
         simpleExoplayer.addListener(this)
     }
+
     override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
         Log.i("Ankit", "onPlayerStateChanged: $playbackState")
 //        if (playbackState == Player.STATE_BUFFERING)
@@ -147,6 +148,7 @@ class PagerFragment : Fragment(),Player.EventListener {
                 .createMediaSource(uri)
         }
     }
+
     private fun preparePlayer(videoUrl: String, type: String) {
         val uri = Uri.parse(videoUrl)
         val mediaSource = buildMediaSource(uri, type)
@@ -174,13 +176,11 @@ class PagerFragment : Fragment(),Player.EventListener {
     }
 
 
-
-
     companion object {
-        fun newInstance(data: StoriesDataModel): PagerFragment? {
+        fun newInstance(data: StoriesDataModel): StoryFragment? {
             var bundel = Bundle()
             bundel.putParcelable("data", data)
-            var fragment = PagerFragment()
+            var fragment = StoryFragment()
             fragment.arguments = bundel
             return fragment
         }
