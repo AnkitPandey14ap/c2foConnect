@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="12dp"
+    android:paddingHorizontal="24dp"
+    tools:context=".videos.RootFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/userIV"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/userIV"
+            android:fontFamily="sans-serif"
+            android:layout_marginStart="16dp"
+            android:textColor="#959595"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            tools:text="Hi, Musk!" />
+
+
+        <ImageView
+            android:id="@+id/chatIV"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_chat" />
+
+        <ImageView
+            android:id="@+id/searchIV"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="12dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/chatIV"
+            android:src="@drawable/ic_search" />
+
+    </RelativeLayout>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="112dp" />
+
+
+</RelativeLayout>
