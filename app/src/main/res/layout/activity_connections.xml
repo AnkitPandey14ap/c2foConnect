@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    tools:context=".ConnectionsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:padding="4dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_left_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#505050"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="Messages" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/corner_36_white"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="16dp"
+        android:elevation="2dp"
+        android:hint="@string/hint_search"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/connectionRV"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_connection" />
+
+
+</LinearLayout>

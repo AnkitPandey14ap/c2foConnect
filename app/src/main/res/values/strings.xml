@@ -103,4 +103,5 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="connect">CONNECT</string>
+    <string name="hint_search">Search</string>
 </resources>
