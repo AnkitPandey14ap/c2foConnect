@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.C2foConnect">
         <activity
+            android:name=".connectins.ChatActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity
             android:name=".ConnectionsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity android:name=".SplashActivity">

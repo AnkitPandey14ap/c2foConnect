@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import com.example.c2foconnect.ConnectionsActivity
 import com.example.c2foconnect.LoginActivity
+import com.example.c2foconnect.connectins.ChatActivity
 import com.example.c2foconnect.videos.VideoActivity
 
 
@@ -22,7 +23,12 @@ class ActivityHelper {
         public fun openConnectionListActivity(activity: Activity) {
             val intent = Intent(activity, ConnectionsActivity::class.java)
             activity.startActivity(intent)
-            activity.finish()
+//            activity.finish()
+        }
+        public fun openChatActivity(activity: Activity) {
+            val intent = Intent(activity, ChatActivity::class.java)
+            activity.startActivity(intent)
+//            activity.finish()
         }
     }
 }

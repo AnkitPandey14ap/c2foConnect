@@ -23,4 +23,6 @@
     <color name="colorBlack">#000000</color>
     <color name="colorGray">#858585</color>
     <color name="colorWhite">#FFFFFF</color>
+
+    <color name="grey_f1f1f1">#f1f1f1</color>
 </resources>

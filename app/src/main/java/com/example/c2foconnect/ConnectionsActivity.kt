@@ -6,7 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.connectins.Contact
-import com.example.c2foconnect.connectins.ContactsAdapter
+import com.example.c2foconnect.connectins.ConnectionsAdapter
 
 class ConnectionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class ConnectionsActivity : AppCompatActivity() {
     private fun initUI() {
         val rvContacts = findViewById<View>(R.id.connectionRV) as RecyclerView
         var contacts = Contact.createContactsList(20)
-        val adapter = ContactsAdapter(contacts)
+        val adapter = ConnectionsAdapter(contacts)
         rvContacts.adapter = adapter
         rvContacts.layoutManager = LinearLayoutManager(this)
     }

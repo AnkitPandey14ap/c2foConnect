@@ -1,5 +1,6 @@
 package com.example.c2foconnect.videos
 
+import android.app.Activity
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import com.example.c2foconnect.R
+import com.example.c2foconnect.helper.ActivityHelper
 import com.example.c2foconnect.video.model.StoriesDataModel
 import com.example.c2foconnect.video.model.UserBean
 import com.squareup.picasso.Callback
@@ -18,9 +20,9 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_root.*
 
 
-class RootFragment : Fragment(),OnPageChangeListener,ViewPager2.PageTransformer {
+class RootFragment : Fragment(), OnPageChangeListener, ViewPager2.PageTransformer {
 
-    val TAG="Ankit";
+    val TAG = "Ankit";
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,9 +34,10 @@ class RootFragment : Fragment(),OnPageChangeListener,ViewPager2.PageTransformer 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var user=UserBean();
+        var user = UserBean();
 
         initView(user)
+        initListners()
 
         viewPager2.adapter = ViewPagerAdapter()
         viewPager2.orientation = ViewPager2.ORIENTATION_VERTICAL
@@ -52,11 +55,9 @@ class RootFragment : Fragment(),OnPageChangeListener,ViewPager2.PageTransformer 
             override fun onPageSelected(position: Int) {
                 if (position == 0) {
                     // you are on the first page
-                }
-                else if (position == 1) {
+                } else if (position == 1) {
                     // you are on the second page
-                }
-                else if (position == 2){
+                } else if (position == 2) {
                     // you are on the third page
                 }
                 super.onPageSelected(position)
@@ -67,7 +68,11 @@ class RootFragment : Fragment(),OnPageChangeListener,ViewPager2.PageTransformer 
                 Log.i(TAG, "onPageScrollStateChanged: $state")
             }
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
                 Log.i(TAG, "onPageScrolled: $position")
 
             }
@@ -76,8 +81,14 @@ class RootFragment : Fragment(),OnPageChangeListener,ViewPager2.PageTransformer 
 
     }
 
+    private fun initListners() {
+        chatIV.setOnClickListener({
+            ActivityHelper.openConnectionListActivity(context as Activity)
+        })
+    }
+
     private fun initView(userBean: UserBean) {
-        nameTV.text=userBean.name;
+        nameTV.text = userBean.name;
 
         Picasso.with(context).load(userBean.imageUrl)
             .resize(48, 48)
@@ -123,7 +134,7 @@ class RootFragment : Fragment(),OnPageChangeListener,ViewPager2.PageTransformer 
     }
 
     override fun transformPage(page: View, position: Float) {
-        Log.i(TAG, "transformPage: "+page)
+        Log.i(TAG, "transformPage: " + page)
     }
 
 

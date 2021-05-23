@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp">
+    android:paddingTop="20dp">
 
     <ImageView
         android:id="@+id/userIV"
@@ -23,10 +21,10 @@
         android:layout_toStartOf="@+id/newMsgCountTV"
         android:layout_toEndOf="@+id/userIV"
         android:fontFamily="sans-serif-medium"
+        android:text="Name"
         android:textColor="#505050"
         android:textSize="18sp"
-        android:textStyle="normal"
-        android:text="Name" />
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/msgTV"
@@ -38,10 +36,10 @@
         android:layout_toStartOf="@+id/newMsgCountTV"
         android:layout_toEndOf="@+id/userIV"
         android:fontFamily="sans-serif"
+        android:text="On my way home but I needed to stop by the book store."
         android:textColor="#b9b9b9"
         android:textSize="12sp"
-        android:textStyle="normal"
-        android:text="On my way home but I needed to stop by the book store." />
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/newMsgCountTV"
@@ -52,8 +50,16 @@
         android:background="@drawable/corner_36_green"
         android:fontFamily="sans-serif"
         android:gravity="center"
+        android:text="4"
         android:textColor="#ffffff"
         android:textSize="12sp"
-        android:textStyle="normal"
-        tools:text="4" />
+        android:textStyle="normal" />
+
+    <View
+        android:layout_width="270dp"
+        android:layout_height="2dp"
+        android:layout_below="@+id/userIV"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:background="#33b9b9b9" />
 </RelativeLayout>
