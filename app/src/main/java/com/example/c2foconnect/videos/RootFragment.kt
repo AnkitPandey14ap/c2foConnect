@@ -1,22 +1,15 @@
 package com.example.c2foconnect.videos
 
-import android.app.Activity
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import com.example.c2foconnect.R
-import com.example.c2foconnect.helper.ActivityHelper
 import com.example.c2foconnect.video.model.StoriesDataModel
-import com.example.c2foconnect.video.model.UserBean
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_root.*
 
 
@@ -34,10 +27,9 @@ class RootFragment : Fragment(), OnPageChangeListener, ViewPager2.PageTransforme
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var user = UserBean();
 
-        initView(user)
-        initListners()
+
+
 
         viewPager2.adapter = ViewPagerAdapter()
         viewPager2.orientation = ViewPager2.ORIENTATION_VERTICAL
@@ -79,37 +71,6 @@ class RootFragment : Fragment(), OnPageChangeListener, ViewPager2.PageTransforme
         })
 
 
-    }
-
-    private fun initListners() {
-        chatIV.setOnClickListener({
-            ActivityHelper.openConnectionListActivity(context as Activity)
-        })
-    }
-
-    private fun initView(userBean: UserBean) {
-        nameTV.text = userBean.name;
-
-        Picasso.with(context).load(userBean.imageUrl)
-            .resize(48, 48)
-            .into(userIV, object : Callback {
-                override fun onSuccess() {
-                    val imageBitmap =
-                        (userIV.drawable as BitmapDrawable).bitmap
-                    val imageDrawable =
-                        RoundedBitmapDrawableFactory.create(resources, imageBitmap)
-                    imageDrawable.isCircular = true
-                    imageDrawable.cornerRadius = Math.max(
-                        imageBitmap.width,
-                        imageBitmap.height
-                    ) / 2.0f
-                    userIV.setImageDrawable(imageDrawable)
-                }
-
-                override fun onError() {
-                    userIV.setImageResource(R.drawable.ic_follow_avatar_bottom_icon)
-                }
-            })
     }
 
 

@@ -5,8 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".videos.RootFragment">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager2"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messageRV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_video_upload" />
+
+
 </RelativeLayout>
