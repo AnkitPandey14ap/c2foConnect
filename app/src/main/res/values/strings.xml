@@ -107,4 +107,15 @@
     <string name="home">Home</string>
     <string name="my_videos">My Videos</string>
     <string name="add_video">Add Video</string>
+    <string name="hint_name">Name</string>
+    <string name="company_details">Company Details</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="main_contact">Main Contact</string>
+    <string name="sector">Sector</string>
+    <string name="type_of_business">Type of Business</string>
+    <string name="geographical_service_area">Geographical Service Area</string>
+    <string name="invoice_accounting_tool">Invoice / Accounting tool</string>
+    <string name="change_profile_photo">Change Profile Photo</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -40,6 +40,6 @@ class LoginActivity : BaseActivity() {
             return
         }
         BPreference.setUser(this, UserBean(1, "name", "https://pbs.twimg.com/profile_images/1366466342354751491/JyhZpbtu_400x400.jpg", email, password))
-        ActivityHelper.openHomeActivity(this)
+        ActivityHelper.openProfileActivity(this)
     }
 }

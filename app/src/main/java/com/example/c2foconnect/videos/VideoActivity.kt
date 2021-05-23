@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.c2foconnect.R
 import com.example.c2foconnect.base.BaseActivity
 import com.example.c2foconnect.helper.ActivityHelper
+import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.video.model.UserBean
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
@@ -20,7 +21,7 @@ class VideoActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video)
 
-        var user = UserBean();
+        var user = BPreference.getUser(this);
         initView(user)
         initListners()
         addHomeFragment()
@@ -84,6 +85,9 @@ class VideoActivity : BaseActivity() {
         chatIV.setOnClickListener {
             ActivityHelper.openConnectionListActivity(this)
         }
+        userIV.setOnClickListener {
+            ActivityHelper.openProfileActivity(this)
+        }
 
         homeTV.setOnClickListener {
             addHomeFragment()
@@ -99,7 +103,6 @@ class VideoActivity : BaseActivity() {
             myVideosTV.setBackground(ContextCompat.getDrawable(this, R.drawable.corner_36_green));
             homeTV.setTextColor(ContextCompat.getColor(this, R.color.text_color));
             homeTV.setBackgroundResource(0)
-
         }
     }
 

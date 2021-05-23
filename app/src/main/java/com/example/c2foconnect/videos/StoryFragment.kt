@@ -13,6 +13,7 @@ import android.view.ViewOutlineProvider
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.fragment.app.Fragment
 import com.example.c2foconnect.R
+import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.video.model.StoriesDataModel
 import com.example.c2foconnect.video.model.UserBean
 import com.google.android.exoplayer2.ExoPlaybackException
@@ -71,8 +72,8 @@ class StoryFragment : Fragment(), Player.EventListener {
             data?.let { it1 -> initializePlayer(it1) }
         }
 
-        var user = UserBean();
-        initView(user)
+        var user = BPreference.getUser(this.context!!)
+        user?.let { initView(it) }
     }
 
     private fun initView(userBean: UserBean) {

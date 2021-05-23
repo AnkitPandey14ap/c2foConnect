@@ -11,9 +11,8 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         if (BPreference.isLogedIn(this)) {
-//            ActivityHelper.openChatActivity(this)
-
             ActivityHelper.openHomeActivity(this)
+//            ActivityHelper.openProfileActivity(this)
         } else {
             ActivityHelper.openLoginActivity(this)
         }

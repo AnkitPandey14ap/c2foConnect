@@ -26,19 +26,29 @@ class BPreference {
         public fun getUser(context: Context): UserBean {
             val prefs: SharedPreferences = context.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE)
             val userJson =
-                prefs.getString("name", "No name defined") //"No name defined" is the default value.
+                prefs.getString("name", "") //"No name defined" is the default value.
 
             if (!BUtility.isStringEmpty(userJson)) {
                 val gson = Gson()
                 val user: UserBean = gson.fromJson(userJson, UserBean::class.java)
                 return user
             }
-            return UserBean()
+            return UserBean(-1,"","","","")
         }
 
         public fun isLogedIn(context: Context): Boolean {
-            val (id, name, imageUrl, email, password) = getUser(context);
-            return !BUtility.isStringEmpty(email)
+            val user = getUser(context);
+            return !BUtility.isStringEmpty(user?.email)
         }
+
+        public fun logout(context: Context) {
+            val preferences: SharedPreferences =
+                context.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE)
+            val editor = preferences.edit()
+              editor.clear()
+            editor.apply()
+        }
+
+
     }
 }
