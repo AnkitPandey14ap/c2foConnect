@@ -2,19 +2,17 @@ package com.example.c2foconnect.helper
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
-
 import android.content.SharedPreferences
-import com.example.c2foconnect.video.model.UserBean
+import com.example.c2foconnect.video.model.User
 import com.google.gson.Gson
 
 
 class BPreference {
 
-
     companion object {
         private val MY_PREFS_NAME = "MY_PREFS_NAME"
         private val USER_KEY = "user"
-        public fun setUser(context: Context, user: UserBean) {
+        public fun setUser(context: Context, user: User) {
             val editor =
                 context.getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE).edit()
             val gson = Gson()
@@ -23,17 +21,17 @@ class BPreference {
             editor.apply()
         }
 
-        public fun getUser(context: Context): UserBean {
+        public fun getUser(context: Context): User? {
             val prefs: SharedPreferences = context.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE)
             val userJson =
                 prefs.getString("name", "") //"No name defined" is the default value.
 
             if (!BUtility.isStringEmpty(userJson)) {
                 val gson = Gson()
-                val user: UserBean = gson.fromJson(userJson, UserBean::class.java)
+                val user: User = gson.fromJson(userJson, User::class.java)
                 return user
             }
-            return UserBean(-1,"","","","")
+            return null
         }
 
         public fun isLogedIn(context: Context): Boolean {
@@ -45,8 +43,8 @@ class BPreference {
             val preferences: SharedPreferences =
                 context.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE)
             val editor = preferences.edit()
-              editor.clear()
-            editor.apply()
+            editor.clear()
+            editor.commit()
         }
 
 

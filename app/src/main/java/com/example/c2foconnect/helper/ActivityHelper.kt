@@ -31,20 +31,15 @@ class ActivityHelper {
         public fun openConnectionListActivity(activity: Activity) {
             val intent = Intent(activity, ConnectionsActivity::class.java)
             activity.startActivity(intent)
-//            activity.finish()
         }
         public fun openChatActivity(activity: Activity) {
             val intent = Intent(activity, ChatActivity::class.java)
             activity.startActivity(intent)
-//            activity.finish()
         }
         public fun openProfileActivity(activity: Activity) {
             val intent = Intent(activity, ProfileActivity::class.java)
             activity.startActivity(intent)
             activity.finish()
         }
-
-
-
     }
 }

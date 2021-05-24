@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import com.example.c2foconnect.R
 import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.video.model.StoriesDataModel
-import com.example.c2foconnect.video.model.UserBean
+import com.example.c2foconnect.video.model.User
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -76,9 +76,9 @@ class StoryFragment : Fragment(), Player.EventListener {
         user?.let { initView(it) }
     }
 
-    private fun initView(userBean: UserBean) {
+    private fun initView(userBean: User) {
 
-        Picasso.with(context).load(userBean.imageUrl)
+        Picasso.with(context).load(userBean.profileImageUrl)
             .resize(42, 42)
             .into(clientIV, object : Callback {
                 override fun onSuccess() {

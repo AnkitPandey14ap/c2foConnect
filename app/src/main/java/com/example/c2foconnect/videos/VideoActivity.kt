@@ -10,7 +10,7 @@ import com.example.c2foconnect.R
 import com.example.c2foconnect.base.BaseActivity
 import com.example.c2foconnect.helper.ActivityHelper
 import com.example.c2foconnect.helper.BPreference
-import com.example.c2foconnect.video.model.UserBean
+import com.example.c2foconnect.video.model.User
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_video.*
@@ -22,9 +22,11 @@ class VideoActivity : BaseActivity() {
         setContentView(R.layout.activity_video)
 
         var user = BPreference.getUser(this);
-        initView(user)
-        initListners()
-        addHomeFragment()
+        if (user != null) {
+            initView(user)
+            initListners()
+            addHomeFragment()
+        }
     }
 
     private fun addHomeFragment() {
@@ -55,10 +57,10 @@ class VideoActivity : BaseActivity() {
         };
     }
 
-    private fun initView(userBean: UserBean) {
+    private fun initView(userBean: User) {
         nameTV.text = userBean.name;
 
-        Picasso.with(this).load(userBean.imageUrl)
+        Picasso.with(this).load(userBean.profileImageUrl)
             .resize(48, 48)
             .into(userIV, object : Callback {
                 override fun onSuccess() {
