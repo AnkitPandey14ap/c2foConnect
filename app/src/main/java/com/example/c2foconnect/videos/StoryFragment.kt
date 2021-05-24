@@ -13,9 +13,7 @@ import android.view.ViewOutlineProvider
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.fragment.app.Fragment
 import com.example.c2foconnect.R
-import com.example.c2foconnect.helper.BPreference
-import com.example.c2foconnect.video.model.StoriesDataModel
-import com.example.c2foconnect.video.model.User
+import com.example.c2foconnect.video.model.Story
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -67,18 +65,26 @@ class StoryFragment : Fragment(), Player.EventListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         arguments?.let {
 //            fragmentContainer.setBackgroundResource(it.getInt("color"))
-            var data = it.getParcelable<StoriesDataModel>("data")
+            var data = it.getParcelable<Story>("data")
 //            initializePlayer(data!!)
             data?.let { it1 -> initializePlayer(it1) }
+
+            data?.let { it1 -> initView(it1) }
         }
 
-        var user = BPreference.getUser(this.context!!)
-        user?.let { initView(it) }
+
     }
 
-    private fun initView(userBean: User) {
+    private fun initView(userBean: Story) {
+        clientNameTV.text = userBean.userName
+        var tag = ""
+        userBean.tags?.forEach { it -> tag += "$it " }
+        clientDiscriptionTV.text = tag
+        userBean.userProfileImage?.let { setRoundImage(it) }
+    }
 
-        Picasso.with(context).load(userBean.profileImageUrl)
+    private fun setRoundImage(url: String) {
+        Picasso.with(context).load(url)
             .resize(42, 42)
             .into(clientIV, object : Callback {
                 override fun onSuccess() {
@@ -101,7 +107,7 @@ class StoryFragment : Fragment(), Player.EventListener {
     }
 
 
-    private fun initializePlayer(data: StoriesDataModel) {
+    private fun initializePlayer(data: Story) {
 
         exoplayerView.outlineProvider = object : ViewOutlineProvider() {
             override fun getOutline(view: View, outline: Outline) {
@@ -111,13 +117,9 @@ class StoryFragment : Fragment(), Player.EventListener {
 
         exoplayerView.clipToOutline = true
 
-
-
-
-
         simpleExoplayer = SimpleExoPlayer.Builder(activity as Context).build()
-        val randomUrl = data.storyUrl
-        preparePlayer(randomUrl, "default")
+        val randomUrl = data.url
+        randomUrl?.let { preparePlayer(it, "default") }
 
 
 //        val randomUrl = urlList.random()
@@ -178,7 +180,7 @@ class StoryFragment : Fragment(), Player.EventListener {
 
 
     companion object {
-        fun newInstance(data: StoriesDataModel): StoryFragment? {
+        fun newInstance(data: Story): StoryFragment? {
             var bundel = Bundle()
             bundel.putParcelable("data", data)
             var fragment = StoryFragment()

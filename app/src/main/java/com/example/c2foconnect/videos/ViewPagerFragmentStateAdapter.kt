@@ -2,9 +2,9 @@ package com.example.c2foconnect.videos
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.c2foconnect.video.model.StoriesDataModel
+import com.example.c2foconnect.video.model.Story
 
-class ViewPagerFragmentStateAdapter(fragment: Fragment, val dataList: MutableList<StoriesDataModel> = mutableListOf()) : FragmentStateAdapter(fragment) {
+class ViewPagerFragmentStateAdapter(fragment: Fragment, val dataList: MutableList<Story> = mutableListOf()) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {
         return dataList.size
     }

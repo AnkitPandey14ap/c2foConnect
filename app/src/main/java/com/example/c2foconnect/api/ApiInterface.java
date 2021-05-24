@@ -1,6 +1,7 @@
 package com.example.c2foconnect.api;
 
 import com.example.c2foconnect.video.model.SignUpResponse;
+import com.example.c2foconnect.video.model.StoryResponse;
 import com.example.c2foconnect.video.model.UserListResponse;
 import com.example.c2foconnect.video.model.UserResponse;
 
@@ -24,4 +25,9 @@ public interface ApiInterface {
     @GET("/cuser")
     public void getUsers(
             Callback<UserResponse> callback);
+
+    @GET("/cuser/videos")
+    public void getStories(
+            Callback<StoryResponse> callback);
+
 }
