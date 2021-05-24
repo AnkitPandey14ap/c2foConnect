@@ -1,5 +1,7 @@
 package com.example.c2foconnect.videos
 
+import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Context
 import android.graphics.Outline
 import android.graphics.drawable.BitmapDrawable
@@ -10,9 +12,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
+import android.widget.Toast
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.fragment.app.Fragment
 import com.example.c2foconnect.R
+import com.example.c2foconnect.api.Api
+import com.example.c2foconnect.helper.ActivityHelper
+import com.example.c2foconnect.helper.BPreference
+import com.example.c2foconnect.video.model.InitialiseChatResponse
 import com.example.c2foconnect.video.model.Story
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.Player
@@ -25,6 +32,8 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_story.*
+import retrofit.RetrofitError
+import retrofit.client.Response
 
 
 class StoryFragment : Fragment(), Player.EventListener {
@@ -70,10 +79,19 @@ class StoryFragment : Fragment(), Player.EventListener {
             data?.let { it1 -> initializePlayer(it1) }
 
             data?.let { it1 -> initView(it1) }
+            initListneres(data)
         }
 
 
     }
+
+    private fun initListneres(data: Story?) {
+        connectTV.setOnClickListener({
+            data?.userId?.let { it1 -> initialseConnection(it1) }
+        })
+    }
+
+
 
     private fun initView(userBean: Story) {
         clientNameTV.text = userBean.userName
@@ -170,13 +188,43 @@ class StoryFragment : Fragment(), Player.EventListener {
     }
 
     private fun startPlayer() {
-        simpleExoplayer.playWhenReady = true
-        simpleExoplayer.playbackState
+        simpleExoplayer?.playWhenReady = true
+        simpleExoplayer?.playbackState
     }
 
     override fun onPlayerError(error: ExoPlaybackException) {
         // handle error
     }
+
+
+    private fun initialseConnection(clientId: String) {
+        val progressDialog = ProgressDialog(context)
+        progressDialog.setCancelable(false) // set cancelable to false
+        progressDialog.setMessage("Please Wait") // set message
+        progressDialog.show() // show progress dialog
+
+        val user = context?.let { BPreference.getUser(it) }
+        Api.getClient().initialiseChat(user?.id,clientId,object : retrofit.Callback<InitialiseChatResponse?> {
+            override fun success(
+                initialiseChatResponse: InitialiseChatResponse?,
+                response: Response
+            ) {
+                progressDialog.dismiss() //dismiss progress dialog
+                Log.i(TAG, "success: " + initialiseChatResponse?.data?.id)
+
+                ActivityHelper.openChatActivity(context as Activity)
+
+            }
+
+            override fun failure(error: RetrofitError) {
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+                Log.i(TAG, "failure: $error.toString()")
+                progressDialog.dismiss() //dismiss progress dialog
+            }
+
+        })
+    }
+
 
 
     companion object {

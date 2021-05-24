@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.R
 import com.example.c2foconnect.helper.ActivityHelper
+import com.example.c2foconnect.video.model.UsersItem
 
-class ConnectionsAdapter(private val mContacts: List<Contact>) :
+class ConnectionsAdapter(private val connections: MutableList<UsersItem>?= mutableListOf()) :
     RecyclerView.Adapter<ConnectionsAdapter.ViewHolder>() {
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
@@ -26,13 +27,13 @@ class ConnectionsAdapter(private val mContacts: List<Contact>) :
     }
 
     override fun onBindViewHolder(viewHolder: ConnectionsAdapter.ViewHolder, position: Int) {
-        val contact: Contact = mContacts.get(position)
+        val user: UsersItem = connections!![position]
 
         val nameTV = viewHolder.nameTV
-        nameTV.text = contact.name
+        nameTV.text = user.name
 
         val messageTV = viewHolder.messageTV
-        messageTV.text = contact.lastMsg
+        messageTV.text = user.email
 
         viewHolder.itemView.setOnClickListener {
             ActivityHelper.openChatActivity(viewHolder.itemView.context as Activity)
@@ -40,7 +41,7 @@ class ConnectionsAdapter(private val mContacts: List<Contact>) :
     }
 
     override fun getItemCount(): Int {
-        return mContacts.size
+        return connections!!.size
     }
 
 }

@@ -12,7 +12,6 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import com.example.c2foconnect.R
 import com.example.c2foconnect.api.Api
-import com.example.c2foconnect.video.model.StoriesDataModel
 import com.example.c2foconnect.video.model.Story
 import com.example.c2foconnect.video.model.StoryResponse
 import kotlinx.android.synthetic.main.fragment_root.*
@@ -41,15 +40,6 @@ class RootFragment : Fragment(), OnPageChangeListener, ViewPager2.PageTransforme
     private fun initViewPager(stories: MutableList<Story>) {
         viewPager2.adapter = ViewPagerAdapter()
         viewPager2.orientation = ViewPager2.ORIENTATION_VERTICAL
-        val list = mutableListOf(
-//            StoriesDataModel(1, "https://html5demos.com/assets/dizzy.mp4"),
-            StoriesDataModel(0, "https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4"),
-            StoriesDataModel(1, "https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4"),
-            StoriesDataModel(2, "https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4"),
-            StoriesDataModel(3, "https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4"),
-            StoriesDataModel(4, "https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4"),
-            StoriesDataModel(5, "https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4")
-        )
         viewPager2.adapter = ViewPagerFragmentStateAdapter(this, stories)
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {

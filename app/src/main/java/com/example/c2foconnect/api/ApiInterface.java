@@ -1,11 +1,9 @@
 package com.example.c2foconnect.api;
 
-import com.example.c2foconnect.video.model.SignUpResponse;
+import com.example.c2foconnect.video.model.AllConnectionsResponse;
+import com.example.c2foconnect.video.model.InitialiseChatResponse;
 import com.example.c2foconnect.video.model.StoryResponse;
-import com.example.c2foconnect.video.model.UserListResponse;
 import com.example.c2foconnect.video.model.UserResponse;
-
-import java.util.List;
 
 import retrofit.Callback;
 import retrofit.http.Field;
@@ -21,6 +19,12 @@ public interface ApiInterface {
                              @Field("password") String password,
                              Callback<UserResponse> callback);
 
+    @FormUrlEncoded // annotation used in POST type requests
+    @POST("/chat")     // API's endpoints
+    public void initialiseChat(@Field("userId1") String userId1,
+                             @Field("userId2") String userId2,
+                             Callback<InitialiseChatResponse> callback);
+
     // API's endpoints
     @GET("/cuser")
     public void getUsers(
@@ -29,5 +33,12 @@ public interface ApiInterface {
     @GET("/cuser/videos")
     public void getStories(
             Callback<StoryResponse> callback);
+
+
+    @FormUrlEncoded // annotation used in POST type requests
+    @POST("/chat")
+    public void getConnections(@Field("id") String id,
+                               Callback<AllConnectionsResponse> callback);
+
 
 }
