@@ -28,7 +28,7 @@ class VideoActivity : BaseActivity() {
 
     private fun initView(userBean: User) {
         nameTV.text = userBean.name;
-        ImageHelper.setRoundImage(this, userIV, userBean)
+        ImageHelper.setRoundImage(this, userIV, userBean.profileImageUrl,48)
     }
 
     private fun initListners() {

@@ -21,7 +21,7 @@ import retrofit.client.Response
 
 class RootFragment : Fragment() {
 
-    val TAG = "Ankit"
+    val TAG = "RootFragment"
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

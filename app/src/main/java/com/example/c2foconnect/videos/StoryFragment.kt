@@ -149,7 +149,7 @@ class StoryFragment : Fragment(), Player.EventListener {
     }
 
     override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-        Log.i("Ankit", "onPlayerStateChanged: $playbackState")
+        Log.i("ExoPlayer", "onPlayerStateChanged: $playbackState")
 //        if (playbackState == Player.STATE_BUFFERING)
 //            progressBar.visibility = View.VISIBLE
 //        else if (playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED)
@@ -212,7 +212,11 @@ class StoryFragment : Fragment(), Player.EventListener {
                 progressDialog.dismiss() //dismiss progress dialog
                 Log.i(TAG, "success: " + initialiseChatResponse?.data?.id)
 
-                ActivityHelper.openChatActivity(context as Activity)
+                initialiseChatResponse?.data?.id?.let {
+                    ActivityHelper.openChatActivity(context as Activity,
+                        it,"send Name","url"
+                    )
+                }
 
             }
 

@@ -9,11 +9,10 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.api.Api
-import com.example.c2foconnect.connectins.Contact
 import com.example.c2foconnect.connectins.ConnectionsAdapter
 import com.example.c2foconnect.helper.BPreference
+import com.example.c2foconnect.video.model.AllConnectionsDataItem
 import com.example.c2foconnect.video.model.AllConnectionsResponse
-import com.example.c2foconnect.video.model.AllConnectionsData
 import retrofit.RetrofitError
 import retrofit.client.Response
 
@@ -27,16 +26,14 @@ class ConnectionsActivity : AppCompatActivity() {
 
     }
 
-    private fun initUI(connectionsData: AllConnectionsData) {
+    private fun initUI(connectionsData: MutableList<AllConnectionsDataItem>) {
 
-        if(connectionsData.users!=null){
+        if(connectionsData!=null){
             val rvContacts = findViewById<View>(R.id.connectionRV) as RecyclerView
-//        var contacts = Contact.createContactsList(20)
-            val adapter = ConnectionsAdapter(connectionsData?.users)
+            val adapter = ConnectionsAdapter(connectionsData)
             rvContacts.adapter = adapter
             rvContacts.layoutManager = LinearLayoutManager(this)
         }
-
     }
 
 

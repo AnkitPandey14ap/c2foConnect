@@ -56,9 +56,10 @@
         android:textStyle="normal" />
 
     <View
-        android:layout_width="270dp"
+        android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_below="@+id/userIV"
+        android:layout_alignLeft="@+id/msgTV"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="8dp"
         android:background="#33b9b9b9" />

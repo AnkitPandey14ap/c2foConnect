@@ -13,9 +13,9 @@ import kotlinx.android.synthetic.main.activity_video.*
 class ImageHelper {
     
     companion object{
-        public fun setRoundImage(context:Context,imageView:ImageView, userBean: User) {
-            Picasso.with(context).load(userBean.profileImageUrl)
-                .resize(48, 48)
+        public fun setRoundImage(context:Context,imageView:ImageView, url: String, radius:Int) {
+            Picasso.with(context).load(url)
+                .resize(radius,radius)
                 .into(imageView, object : Callback {
                     override fun onSuccess() {
                         val imageBitmap =

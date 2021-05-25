@@ -22,8 +22,8 @@ public interface ApiInterface {
 
     @FormUrlEncoded // annotation used in POST type requests
     @POST("/chat")     // API's endpoints
-    public void initialiseChat(@Field("userId1") String userId1,
-                             @Field("userId2") String userId2,
+    public void initialiseChat(@Field("selfUserId") String selfUserId,
+                             @Field("otherUserId") String otherUserId,
                              Callback<InitialiseChatResponse> callback);
 
     // API's endpoints
@@ -36,9 +36,9 @@ public interface ApiInterface {
             Callback<StoryResponse> callback);
 
 
-    @FormUrlEncoded // annotation used in POST type requests
-    @POST("/chat")
-    public void getConnections(@Field("id") String id,
+//    @FormUrlEncoded // annotation used in POST type requests
+    @GET("/chat")
+    public void getConnections(@Query("id") String id,
                                Callback<AllConnectionsResponse> callback);
 
 

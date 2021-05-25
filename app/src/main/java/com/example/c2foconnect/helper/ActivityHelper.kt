@@ -18,24 +18,37 @@ class ActivityHelper {
             activity.startActivity(intent)
             activity.finish()
         }
+
         public fun openHomeActivity(activity: Activity) {
             val intent = Intent(activity, VideoActivity::class.java)
             activity.startActivity(intent)
             activity.finish()
         }
+
         public fun openLoginActivity(activity: Activity) {
             val intent = Intent(activity, LoginActivity::class.java)
             activity.startActivity(intent)
             activity.finish()
         }
+
         public fun openConnectionListActivity(activity: Activity) {
             val intent = Intent(activity, ConnectionsActivity::class.java)
             activity.startActivity(intent)
         }
-        public fun openChatActivity(activity: Activity) {
+
+        public fun openChatActivity(
+            activity: Activity,
+            connectionId: String,
+            clientName: String,
+            clientProfileUrl: String
+        ) {
             val intent = Intent(activity, ChatActivity::class.java)
+            intent.putExtra(ChatActivity.CONNECTION_ID, connectionId)
+            intent.putExtra(ChatActivity.CLIENT_NAME, clientName)
+            intent.putExtra(ChatActivity.CLIENT_PROFILE_URL, clientProfileUrl)
             activity.startActivity(intent)
         }
+
         public fun openProfileActivity(activity: Activity) {
             val intent = Intent(activity, ProfileActivity::class.java)
             activity.startActivity(intent)

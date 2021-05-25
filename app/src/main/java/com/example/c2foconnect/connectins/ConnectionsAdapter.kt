@@ -8,9 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.R
 import com.example.c2foconnect.helper.ActivityHelper
-import com.example.c2foconnect.video.model.UsersItem
+import com.example.c2foconnect.video.model.AllConnectionsDataItem
+import com.example.c2foconnect.video.model.User
 
-class ConnectionsAdapter(private val connections: MutableList<UsersItem>?= mutableListOf()) :
+class ConnectionsAdapter(private val connections: MutableList<AllConnectionsDataItem>? = mutableListOf()) :
     RecyclerView.Adapter<ConnectionsAdapter.ViewHolder>() {
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
@@ -19,7 +20,10 @@ class ConnectionsAdapter(private val connections: MutableList<UsersItem>?= mutab
         val messageTV = itemView.findViewById<TextView>(R.id.msgTV)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConnectionsAdapter.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ConnectionsAdapter.ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         val contactView = inflater.inflate(R.layout.item_connection, parent, false)
@@ -27,7 +31,7 @@ class ConnectionsAdapter(private val connections: MutableList<UsersItem>?= mutab
     }
 
     override fun onBindViewHolder(viewHolder: ConnectionsAdapter.ViewHolder, position: Int) {
-        val user: UsersItem = connections!![position]
+        val user: User = connections!![position].user
 
         val nameTV = viewHolder.nameTV
         nameTV.text = user.name
@@ -36,7 +40,10 @@ class ConnectionsAdapter(private val connections: MutableList<UsersItem>?= mutab
         messageTV.text = user.email
 
         viewHolder.itemView.setOnClickListener {
-            ActivityHelper.openChatActivity(viewHolder.itemView.context as Activity)
+            ActivityHelper.openChatActivity(
+                viewHolder.itemView.context as Activity,
+                connections[position].chatId,connections[position].user.name,connections[position].user.profileImageUrl
+            )
         }
     }
 
