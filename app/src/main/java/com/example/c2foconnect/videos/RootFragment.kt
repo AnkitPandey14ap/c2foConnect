@@ -71,7 +71,7 @@ class RootFragment : Fragment() {
 
 
     companion object {
-        fun newInstance(): RootFragment? {
+        fun newInstance(): RootFragment {
             return RootFragment()
         }
     }
@@ -102,5 +102,41 @@ class RootFragment : Fragment() {
             }
 
         })
+    }
+
+    private fun searchStories(searchText: String?) {
+        val progressDialog = ProgressDialog(context)
+        progressDialog.setCancelable(false) // set cancelable to false
+        progressDialog.setMessage("Please Wait") // set message
+        progressDialog.show() // show progress dialog
+
+        val user = context?.let { BPreference.getUser(it) }
+        Log.i(TAG, "getStories: userId ${user!!.id}")
+        Api.getClient()
+            .searchStories(user.id, searchText, object : retrofit.Callback<StoryResponse?> {
+                override fun success(
+                    storyResponse: StoryResponse?,
+                    response: Response
+                ) {
+                    progressDialog.dismiss() //dismiss progress dialog
+                    Log.i(TAG, "success: " + storyResponse?.data?.size)
+
+                    storyResponse?.data?.let { initViewPager(it) }
+                }
+
+                override fun failure(error: RetrofitError) {
+                    Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+                    Log.i(TAG, "failure: $error.toString()")
+                    progressDialog.dismiss() //dismiss progress dialog
+                }
+
+            })
+    }
+
+    public fun refreshList(searchText: String) {
+        activity?.runOnUiThread {
+            searchStories(searchText)
+        }
+
     }
 }

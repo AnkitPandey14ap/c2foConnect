@@ -23,8 +23,8 @@ public interface ApiInterface {
     @FormUrlEncoded // annotation used in POST type requests
     @POST("/chat")     // API's endpoints
     public void initialiseChat(@Field("selfUserId") String selfUserId,
-                             @Field("otherUserId") String otherUserId,
-                             Callback<InitialiseChatResponse> callback);
+                               @Field("otherUserId") String otherUserId,
+                               Callback<InitialiseChatResponse> callback);
 
     // API's endpoints
     @GET("/cuser")
@@ -33,10 +33,14 @@ public interface ApiInterface {
 
     @GET("/cuser/videos")
     public void getStories(@Query("userId") String userId,
-            Callback<StoryResponse> callback);
+                           Callback<StoryResponse> callback);
+
+    @GET("/cuser/videos")
+    public void searchStories(@Query("userId") String userId,
+                              @Query("tag") String tag,
+                              Callback<StoryResponse> callback);
 
 
-//    @FormUrlEncoded // annotation used in POST type requests
     @GET("/chat")
     public void getConnections(@Query("id") String id,
                                Callback<AllConnectionsResponse> callback);

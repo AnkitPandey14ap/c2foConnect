@@ -15,8 +15,8 @@
 
         <ImageView
             android:layout_width="32dp"
-            android:layout_height="32dp"
             android:padding="4dp"
+            android:layout_height="32dp"
             android:src="@drawable/ic_left_arrow" />
 
         <TextView
@@ -24,10 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="sans-serif"
-            android:text="Messages"
             android:textColor="#505050"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:text="Messages" />
 
     </LinearLayout>
 
