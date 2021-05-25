@@ -38,8 +38,13 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun loginUser() {
-        emailId = emailET.text.toString()
-        password = passwordET.text.toString()
+//        emailId = emailET.text.toString()
+//        password = passwordET.text.toString()
+
+        emailId = "enquiry@tesco.com"
+        password = "dsfsdfs"
+
+
         if (BUtility.isStringEmpty(emailId)) {
             BToastHelper.showToast(this, "invalid Email address!")
             return
@@ -60,7 +65,7 @@ class LoginActivity : BaseActivity() {
             ) {
                 progressDialog.dismiss() //dismiss progress dialog
                 var userListResponseData = userListResponses
-                Log.i(TAG, "success: " + userListResponseData?.data?.email)
+                Log.i(TAG, "success: " + userListResponseData?.data?.id)
 
                 userListResponses?.data?.let { saveUserAndOpenHomePage(it) }
             }

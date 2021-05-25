@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import com.example.c2foconnect.R
 import com.example.c2foconnect.api.Api
+import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.video.model.Story
 import com.example.c2foconnect.video.model.StoryResponse
 import kotlinx.android.synthetic.main.fragment_root.*
@@ -19,9 +19,9 @@ import retrofit.RetrofitError
 import retrofit.client.Response
 
 
-class RootFragment : Fragment(), OnPageChangeListener, ViewPager2.PageTransformer {
+class RootFragment : Fragment() {
 
-    val TAG = "Ankit";
+    val TAG = "Ankit"
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -76,31 +76,15 @@ class RootFragment : Fragment(), OnPageChangeListener, ViewPager2.PageTransforme
         }
     }
 
-    override fun onPageScrollStateChanged(state: Int) {
-        Log.i(TAG, "onPageScrollStateChanged: $state")
-    }
-
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-        Log.i(TAG, "onPageScrolled: $position")
-
-    }
-
-    override fun onPageSelected(position: Int) {
-        Log.i(TAG, "onPageSelected: $position")
-
-    }
-
-    override fun transformPage(page: View, position: Float) {
-        Log.i(TAG, "transformPage: " + page)
-    }
-
     private fun getStories() {
         val progressDialog = ProgressDialog(context)
         progressDialog.setCancelable(false) // set cancelable to false
         progressDialog.setMessage("Please Wait") // set message
         progressDialog.show() // show progress dialog
 
-        Api.getClient().getStories(object : retrofit.Callback<StoryResponse?> {
+        val user = context?.let { BPreference.getUser(it) }
+        Log.i(TAG, "getStories: userId ${user!!.id}")
+        Api.getClient().getStories(user.id, object : retrofit.Callback<StoryResponse?> {
             override fun success(
                 storyResponse: StoryResponse?,
                 response: Response
@@ -119,7 +103,4 @@ class RootFragment : Fragment(), OnPageChangeListener, ViewPager2.PageTransforme
 
         })
     }
-
-
-
 }

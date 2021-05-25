@@ -12,7 +12,7 @@ class SplashActivity : AppCompatActivity() {
 
         if (BPreference.isLogedIn(this)) {
             ActivityHelper.openHomeActivity(this)
-//            ActivityHelper.openProfileActivity(this)
+//            ActivityHelper.openChatActivity(this)
         } else {
             ActivityHelper.openLoginActivity(this)
         }

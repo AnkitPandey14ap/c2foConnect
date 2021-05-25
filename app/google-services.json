@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "22707629041",
+    "firebase_url": "https://c2fo-connect-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "c2fo-connect",
+    "storage_bucket": "c2fo-connect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22707629041:android:4749cd94192d6a61207250",
+        "android_client_info": {
+          "package_name": "com.example.c2foconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22707629041-e5ecl0ppl1a5q4t9o6q826m9453rht0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnQDqWjziTfOvyZJB0DeKhR_lwnN1HxJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22707629041-e5ecl0ppl1a5q4t9o6q826m9453rht0a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "22707629041-7jru75p8paip5roi4h6vqri66a3d2lnj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.C2FOConnect"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

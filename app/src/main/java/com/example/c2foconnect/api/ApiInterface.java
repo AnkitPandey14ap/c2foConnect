@@ -10,11 +10,12 @@ import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Query;
 
 public interface ApiInterface {
 
     @FormUrlEncoded // annotation used in POST type requests
-    @POST("/cuser")     // API's endpoints
+    @POST("/cuser/login")     // API's endpoints
     public void registration(@Field("email") String email,
                              @Field("password") String password,
                              Callback<UserResponse> callback);
@@ -31,7 +32,7 @@ public interface ApiInterface {
             Callback<UserResponse> callback);
 
     @GET("/cuser/videos")
-    public void getStories(
+    public void getStories(@Query("userId") String userId,
             Callback<StoryResponse> callback);
 
 

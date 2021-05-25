@@ -4,19 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="12dp"
-    android:paddingHorizontal="24dp">
+    android:paddingHorizontal="0dp">
 
     <RelativeLayout
         android:id="@+id/headerContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        android:paddingHorizontal="24dp">
 
         <ImageView
             android:id="@+id/userIV"
             android:layout_width="48dp"
             android:layout_height="48dp"
             tools:src="@tools:sample/avatars" />
+
         <TextView
             android:id="@+id/hiTV"
             android:layout_width="wrap_content"
@@ -25,10 +27,10 @@
             android:layout_marginStart="16dp"
             android:layout_toEndOf="@+id/userIV"
             android:fontFamily="sans-serif"
+            android:text="Hi, "
             android:textColor="#959595"
-            android:textSize="24sp"
-            android:textStyle="normal"
-            android:text="Hi, " />
+            android:textSize="20sp"
+            android:textStyle="normal" />
 
 
         <TextView
@@ -36,13 +38,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:textStyle="bold"
+            android:layout_toStartOf="@+id/searchIV"
             android:layout_toEndOf="@+id/hiTV"
             android:fontFamily="sans-serif"
-            android:textColor="#505050"
-            android:textSize="24sp"
             android:text="Hi,"
-            />
+            android:textColor="#505050"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/chatIV"
@@ -68,7 +70,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/headerContainer"
-        android:layout_marginTop="12dp">
+
+        android:layout_marginTop="12dp"
+        android:paddingHorizontal="24dp">
 
         <TextView
             android:id="@+id/homeTV"
