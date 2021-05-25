@@ -92,7 +92,6 @@ class StoryFragment : Fragment(), Player.EventListener {
     }
 
 
-
     private fun initView(userBean: Story) {
         clientNameTV.text = userBean.userName
         var tag = ""
@@ -204,31 +203,34 @@ class StoryFragment : Fragment(), Player.EventListener {
         progressDialog.show() // show progress dialog
 
         val user = context?.let { BPreference.getUser(it) }
-        Api.getClient().initialiseChat(user?.id,clientId,object : retrofit.Callback<InitialiseChatResponse?> {
-            override fun success(
-                initialiseChatResponse: InitialiseChatResponse?,
-                response: Response
-            ) {
-                progressDialog.dismiss() //dismiss progress dialog
-                Log.i(TAG, "success: " + initialiseChatResponse?.data?.id)
+        Api.getClient().initialiseChat(
+            user?.id,
+            clientId,
+            object : retrofit.Callback<InitialiseChatResponse?> {
+                override fun success(
+                    initialiseChatResponse: InitialiseChatResponse?,
+                    response: Response
+                ) {
+                    progressDialog.dismiss() //dismiss progress dialog
+                    Log.i(TAG, "success: " + initialiseChatResponse?.data?.id)
 
-                initialiseChatResponse?.data?.id?.let {
-                    ActivityHelper.openChatActivity(context as Activity,
-                        it,"send Name","url"
-                    )
+                    initialiseChatResponse?.data?.id?.let {
+                        ActivityHelper.openChatActivity(
+                            context as Activity,
+                            it, "send Name", "url"
+                        )
+                    }
+
                 }
 
-            }
+                override fun failure(error: RetrofitError) {
+                    Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+                    Log.i(TAG, "failure: $error.toString()")
+                    progressDialog.dismiss() //dismiss progress dialog
+                }
 
-            override fun failure(error: RetrofitError) {
-                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
-                Log.i(TAG, "failure: $error.toString()")
-                progressDialog.dismiss() //dismiss progress dialog
-            }
-
-        })
+            })
     }
-
 
 
     companion object {

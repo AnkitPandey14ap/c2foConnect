@@ -3,18 +3,23 @@ package com.example.c2foconnect.videos
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.R
 import com.example.c2foconnect.connectins.Contact
+import com.example.c2foconnect.video.model.MyVideosItem
+import com.squareup.picasso.Picasso
 
-class MyVideosAdapter(private val mContacts: List<Contact>) :
+class MyVideosAdapter(private val mContacts: MutableList<MyVideosItem>?= mutableListOf()) :
     RecyclerView.Adapter<MyVideosAdapter.ViewHolder>() {
 
     val UPLOAD_VIEW = 0
     val VIDEO_VIEW = 1
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
-//        val messageTV = itemView.findViewById<TextView>(R.id.messageTV)
+        val viewTV = itemView.findViewById<TextView>(R.id.viewTV)
+        val thumbnailIV = itemView.findViewById<ImageView>(R.id.thumbnailIV)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVideosAdapter.ViewHolder {
@@ -30,14 +35,20 @@ class MyVideosAdapter(private val mContacts: List<Contact>) :
     }
 
     override fun onBindViewHolder(viewHolder: MyVideosAdapter.ViewHolder, position: Int) {
-        val contact: Contact = mContacts.get(position)
+        val videoData: MyVideosItem = this.mContacts!![position]
 
-//        val messageTV = viewHolder.messageTV
-//        messageTV.text = contact.lastMsg
+        val viewTV = viewHolder.viewTV
+        viewTV.text = videoData.id
+
+        val thumbnailIV=viewHolder.thumbnailIV
+
+        Picasso.with(viewHolder.thumbnailIV.context)
+            .load(videoData.url)
+            .into(thumbnailIV);
     }
 
     override fun getItemCount(): Int {
-        return mContacts.size
+        return mContacts!!.size
     }
 
     override fun getItemViewType(position: Int): Int {
