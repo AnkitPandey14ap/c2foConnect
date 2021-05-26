@@ -35,16 +35,18 @@ class MyVideosAdapter(private val mContacts: MutableList<MyVideosItem>?= mutable
     }
 
     override fun onBindViewHolder(viewHolder: MyVideosAdapter.ViewHolder, position: Int) {
-        val videoData: MyVideosItem = this.mContacts!![position]
+        if(viewHolder.itemViewType==VIDEO_VIEW){
+            val videoData: MyVideosItem = this.mContacts!![position]
 
-        val viewTV = viewHolder.viewTV
-        viewTV.text = videoData.id
+            val viewTV = viewHolder.viewTV
+            viewTV.text = videoData.id
 
-        val thumbnailIV=viewHolder.thumbnailIV
+            val thumbnailIV=viewHolder.thumbnailIV
 
-        Picasso.with(viewHolder.thumbnailIV.context)
-            .load(videoData.url)
-            .into(thumbnailIV);
+//            Picasso.with(viewHolder.thumbnailIV.context)
+//                .load(videoData.url)
+//                .into(thumbnailIV);
+        }
     }
 
     override fun getItemCount(): Int {

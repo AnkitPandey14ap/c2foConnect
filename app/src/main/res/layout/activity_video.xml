@@ -16,7 +16,9 @@
             android:id="@+id/userIV"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            tools:src="@tools:sample/avatars" />
+            android:padding="2dp"
+            android:background="@drawable/corner_24_grey"
+            android:src="@drawable/ic_user" />
 
         <TextView
             android:id="@+id/hiTV"

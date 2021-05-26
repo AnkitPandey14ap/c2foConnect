@@ -3,20 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_chat"
     tools:context=".connectins.ChatActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/headerContainer"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="88dp"
         android:background="@drawable/shadow"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:paddingHorizontal="24dp"
+
+        >
 
         <ImageView
+            android:id="@+id/backIV"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
             android:padding="4dp"
             android:src="@drawable/ic_left_arrow" />
@@ -25,6 +27,8 @@
             android:id="@+id/clientProfileIV"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/backIV"
             android:padding="4dp"
             android:src="@drawable/corner_36_green" />
 
@@ -32,21 +36,49 @@
             android:id="@+id/clientNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/clientProfileIV"
             android:fontFamily="sans-serif"
             android:text="Name"
             android:textColor="#505050"
-            android:textSize="24sp"
             android:textStyle="bold" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/callIV"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:padding="4dp"
+            android:layout_toLeftOf="@+id/mailIV"
+            android:src="@drawable/icon_call" />
+
+        <ImageView
+            android:id="@+id/mailIV"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/whatsappIV"
+            android:padding="4dp"
+            android:src="@drawable/icon_mail" />
+
+        <ImageView
+            android:id="@+id/whatsappIV"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="4dp"
+            android:src="@drawable/icon_whatsapp" />
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messageRV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/inputContainer"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="88dp"
         tools:listitem="@layout/item_message_right" />
 
     <RelativeLayout

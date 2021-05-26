@@ -31,7 +31,7 @@ class ImageHelper {
                     }
 
                     override fun onError() {
-                        imageView.setImageResource(R.drawable.ic_follow_avatar_bottom_icon)
+                        imageView.setImageResource(R.drawable.ic_user)
                     }
                 })
         }

@@ -8,12 +8,22 @@
     tools:context=".LoginActivity">
 
 
-    <ImageView
-        android:id="@+id/logoIV"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/purple_500" />
+        android:background="@drawable/bg_login">
+        <ImageView
+            android:id="@+id/logoIV"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:src="@drawable/icon_logo"
+            android:background="@drawable/corner_42_white" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

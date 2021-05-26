@@ -10,7 +10,6 @@
         android:id="@+id/exoplayerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         app:resize_mode="fill"
         app:use_controller="false" />
 

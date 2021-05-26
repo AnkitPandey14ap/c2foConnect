@@ -126,17 +126,17 @@ class StoryFragment : Fragment(), Player.EventListener {
 
     private fun initializePlayer(data: Story) {
 
-        exoplayerView.outlineProvider = object : ViewOutlineProvider() {
-            override fun getOutline(view: View, outline: Outline) {
-                outline.setRoundRect(0, 0, view.width, view.height, 12f)
-            }
-        }
+//        exoplayerView.outlineProvider = object : ViewOutlineProvider() {
+//            override fun getOutline(view: View, outline: Outline) {
+//                outline.setRoundRect(0, 0, view.width, view.height, 12f)
+//            }
+//        }
 
-        exoplayerView.clipToOutline = true
+//        exoplayerView.clipToOutline = true
 
         simpleExoplayer = SimpleExoPlayer.Builder(activity as Context).build()
-//        val randomUrl = data.url
-        val randomUrl = "https://html5demos.com/assets/dizzy.mp4"
+        val randomUrl = data.url
+//        val randomUrl = "https://html5demos.com/assets/dizzy.mp4"
         randomUrl?.let { preparePlayer(it, "default") }
 
 
@@ -144,7 +144,7 @@ class StoryFragment : Fragment(), Player.EventListener {
 //        preparePlayer(randomUrl.first, randomUrl.second)
         exoplayerView.player = simpleExoplayer
         simpleExoplayer.seekTo(playbackPosition)
-//        simpleExoplayer.playWhenReady = true
+        simpleExoplayer.playWhenReady = true
         simpleExoplayer.addListener(this)
     }
 
@@ -213,13 +213,17 @@ class StoryFragment : Fragment(), Player.EventListener {
                     response: Response
                 ) {
                     progressDialog.dismiss() //dismiss progress dialog
-                    Log.i(TAG, "success: " + initialiseChatResponse?.data?.id)
+                    val connectionId = initialiseChatResponse?.data?.chat?.id
+                    val clientUser = initialiseChatResponse?.data?.user
+                    Log.i(TAG, "success: " + id)
 
-                    initialiseChatResponse?.data?.id?.let {
-                        ActivityHelper.openChatActivity(
-                            context as Activity,
-                            it, "send Name", "url", "connections[position].id"
-                        )
+                    if (connectionId != null) {
+                        clientUser?.name?.let {
+                            ActivityHelper.openChatActivity(
+                                context as Activity,
+                                connectionId, it, clientUser?.profileImageUrl, clientUser?.id
+                            )
+                        }
                     }
 
                 }

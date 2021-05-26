@@ -38,11 +38,11 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun loginUser() {
-//        emailId = emailET.text.toString()
-//        password = passwordET.text.toString()
+        emailId = emailET.text.toString()
+        password = passwordET.text.toString()
 
-        emailId = "enquiry@tesco.com"
-        password = "dsfsdfs"
+//        emailId = "enquiry@piramal.com"
+//        password = "dsfsdfs"
 
 
         if (BUtility.isStringEmpty(emailId)) {
