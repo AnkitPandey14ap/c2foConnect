@@ -6,10 +6,13 @@ import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginBottom
 import com.example.c2foconnect.helper.ActivityHelper
 import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.helper.ImageHelper
 import com.example.c2foconnect.video.model.User
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.activity_profile.*
 
 
@@ -28,7 +31,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        var user=this.user
+        var user = this.user
         if (user == null)
             return
         ImageHelper.setRoundImage(this, userIV, user.profileImageUrl, 60)
@@ -40,6 +43,12 @@ class ProfileActivity : AppCompatActivity() {
         buisinessTypeET.setText(user.businessType)
         geographicalET.setText(user.address)
 //        invoiceToolET.setText(user.in)
+        user?.requirements?.forEach {
+            addChip(it, requirementsChipGroup)
+        }
+        user.products.forEach {
+            addChip(it, productsChipGroup)
+        }
     }
 
     private fun initListeners() {
@@ -51,6 +60,14 @@ class ProfileActivity : AppCompatActivity() {
             BPreference.logout(this)
             triggerRebirth(this)
         }
+    }
+
+    private fun addChip(pItem: String, pChipGroup: ChipGroup) {
+        val lChip = Chip(this)
+        lChip.text = pItem
+        lChip.setTextColor(resources.getColor(R.color.text_color))
+        lChip.chipBackgroundColor = resources.getColorStateList(R.color.grey_f1f1f1)
+        pChipGroup.addView(lChip, pChipGroup.childCount - 1)
     }
 
     fun triggerRebirth(context: Context) {

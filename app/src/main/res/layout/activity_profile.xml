@@ -121,6 +121,49 @@ roof tiles, as well as other related products and services." />
                 android:layout_height="1dp"
                 android:background="@color/grey_f1f1f1" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"
+                android:textColor="#9a9a9a"
+                android:text="@string/requirements"
+                />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/requirementsChipGroup"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                app:chipSpacingVertical="2dp"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_f1f1f1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"
+                android:textColor="#9a9a9a"
+                android:text="@string/products"
+                />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/productsChipGroup"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                app:chipSpacingVertical="2dp"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_f1f1f1" />
+
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phoneTIL"
                 android:layout_width="match_parent"

@@ -18,7 +18,10 @@ public class User {
 	private List<MyVideosItem> myVideos;
 
 	@SerializedName("products")
-	private List<Object> products;
+	private List<String> products;
+
+	@SerializedName("requirements")
+	private List<String> requirements;
 
 	@SerializedName("password")
 	private String password;
@@ -60,8 +63,11 @@ public class User {
 		return myVideos;
 	}
 
-	public List<Object> getProducts(){
+	public List<String> getProducts(){
 		return products;
+	}
+	public List<String> getRequirements(){
+		return requirements;
 	}
 
 	public String getPassword(){
