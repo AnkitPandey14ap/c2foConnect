@@ -4,19 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="24dp"
+    android:paddingVertical="10dp"
     tools:context=".ConnectionsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/shadow"
         android:orientation="horizontal"
+        android:paddingStart="24dp"
         android:paddingVertical="12dp">
 
         <ImageView
             android:layout_width="32dp"
-            android:padding="4dp"
             android:layout_height="32dp"
+            android:padding="8dp"
             android:src="@drawable/ic_left_arrow" />
 
         <TextView
@@ -24,19 +26,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="sans-serif"
+            android:text="Messages"
             android:textColor="#505050"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:text="Messages" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/connectionRV"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
         tools:listitem="@layout/item_connection" />
-
-
 </LinearLayout>

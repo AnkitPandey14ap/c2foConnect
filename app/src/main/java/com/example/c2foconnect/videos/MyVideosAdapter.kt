@@ -39,13 +39,14 @@ class MyVideosAdapter(private val mContacts: MutableList<MyVideosItem>?= mutable
             val videoData: MyVideosItem = this.mContacts!![position]
 
             val viewTV = viewHolder.viewTV
-            viewTV.text = videoData.id
 
+            val last = (100..9000).shuffled().last()
+            viewTV.text =last.toString()
             val thumbnailIV=viewHolder.thumbnailIV
 
-//            Picasso.with(viewHolder.thumbnailIV.context)
-//                .load(videoData.url)
-//                .into(thumbnailIV);
+            Picasso.with(viewHolder.thumbnailIV.context)
+                .load(videoData.url)
+                .into(thumbnailIV);
         }
     }
 

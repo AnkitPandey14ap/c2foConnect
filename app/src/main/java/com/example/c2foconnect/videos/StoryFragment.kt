@@ -118,7 +118,7 @@ class StoryFragment : Fragment(), Player.EventListener {
                 }
 
                 override fun onError() {
-                    clientIV.setImageResource(R.drawable.ic_follow_avatar_bottom_icon)
+                    clientIV.setImageResource(R.drawable.ic_user)
                 }
             })
     }

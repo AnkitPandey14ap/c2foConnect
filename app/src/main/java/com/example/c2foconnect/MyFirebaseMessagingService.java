@@ -19,7 +19,7 @@ import com.google.firebase.messaging.RemoteMessage;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private String CHANNEL_ID = "0";
-    private int m = 111;
+    private int REQUEST_CODE = 111;
 
 
     @Override
@@ -38,7 +38,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private void sendNotification(RemoteMessage remoteMessage) {
         Intent intent = new Intent(this, ConnectionsActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
-                m, intent, PendingIntent.FLAG_ONE_SHOT);
+                REQUEST_CODE, intent, PendingIntent.FLAG_ONE_SHOT);
         String channelId = CHANNEL_ID;
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder;
@@ -60,7 +60,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     NotificationManager.IMPORTANCE_DEFAULT);
             notificationManager.createNotificationChannel(channel);
         }
-        notificationManager.notify(m, notificationBuilder.build());
+        notificationManager.notify(REQUEST_CODE, notificationBuilder.build());
     }
 
     public static String getToken(Context context) {

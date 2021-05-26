@@ -20,7 +20,7 @@
             android:layout_height="32dp"
             android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
-            android:padding="4dp"
+            android:padding="8dp"
             android:src="@drawable/ic_left_arrow" />
 
         <ImageView
@@ -29,8 +29,8 @@
             android:layout_height="48dp"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/backIV"
-            android:padding="4dp"
-            android:src="@drawable/corner_36_green" />
+            android:padding="2dp"
+            android:background="@drawable/corner_24_grey" />
 
         <TextView
             android:id="@+id/clientNameTV"

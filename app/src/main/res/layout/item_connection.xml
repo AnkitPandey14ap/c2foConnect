@@ -3,15 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingTop="20dp">
+    android:paddingTop="16dp">
 
     <ImageView
         android:id="@+id/userIV"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="24dp"
-
-        android:src="@drawable/corner_36_green" />
+        android:background="@drawable/ic_user" />
 
     <TextView
         android:id="@+id/userTV"
@@ -57,7 +56,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_below="@+id/userIV"
         android:layout_alignLeft="@+id/msgTV"
         android:layout_alignParentEnd="true"

@@ -2,6 +2,7 @@ package com.example.c2foconnect.videos
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
@@ -19,6 +20,7 @@ import java.util.concurrent.TimeUnit
 
 
 class VideoActivity : BaseActivity() {
+    private var ifFirstCall: Boolean = true
     private lateinit var simpleFragment: RootFragment
     val TAG = "VideoActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,10 +44,9 @@ class VideoActivity : BaseActivity() {
         chatIV.setOnClickListener {
             ActivityHelper.openConnectionListActivity(this)
         }
-        searchIV.setOnClickListener {
-            showSearchView(true)
-            subscribeSearchInputChangeListner()
-        }
+//        searchIV.setOnClickListener {
+//            showSearchView(true)
+//        }
 
         userIV.setOnClickListener {
             ActivityHelper.openProfileActivity(this)
@@ -66,13 +67,23 @@ class VideoActivity : BaseActivity() {
             homeTV.setTextColor(ContextCompat.getColor(this, R.color.text_color));
             homeTV.setBackgroundResource(0)
         }
+
+        subscribeSearchInputChangeListner()
+
+//        Handler().postDelayed({
+//            subscribeSearchInputChangeListner()
+//        }, 4000)
     }
 
     private fun subscribeSearchInputChangeListner() {
         RxTextView.textChanges(searchET)
             .debounce(1000, TimeUnit.MILLISECONDS)
             .subscribe {
-                simpleFragment.refreshList(it.toString())
+                if (ifFirstCall)
+                    ifFirstCall = false
+                else
+                    simpleFragment.refreshList(it.toString())
+
             }
     }
 
