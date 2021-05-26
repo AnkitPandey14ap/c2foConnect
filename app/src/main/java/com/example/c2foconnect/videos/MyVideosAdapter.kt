@@ -1,25 +1,36 @@
 package com.example.c2foconnect.videos
 
+import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.R
-import com.example.c2foconnect.connectins.Contact
 import com.example.c2foconnect.video.model.MyVideosItem
-import com.squareup.picasso.Picasso
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
+import com.google.android.exoplayer2.source.dash.DashMediaSource
+import com.google.android.exoplayer2.ui.PlayerView
+import com.google.android.exoplayer2.upstream.DataSource
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 
-class MyVideosAdapter(private val mContacts: MutableList<MyVideosItem>?= mutableListOf()) :
+class MyVideosAdapter(
+    var context: Context,
+    private val mContacts: MutableList<MyVideosItem>? = mutableListOf()
+) :
     RecyclerView.Adapter<MyVideosAdapter.ViewHolder>() {
 
     val UPLOAD_VIEW = 0
     val VIDEO_VIEW = 1
+    private var playbackPosition: Long = 0
+
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         val viewTV = itemView.findViewById<TextView>(R.id.viewTV)
-        val thumbnailIV = itemView.findViewById<ImageView>(R.id.thumbnailIV)
+        val thumbnailIV = itemView.findViewById<PlayerView>(R.id.thumbnailIVExoPlayer)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVideosAdapter.ViewHolder {
@@ -35,19 +46,25 @@ class MyVideosAdapter(private val mContacts: MutableList<MyVideosItem>?= mutable
     }
 
     override fun onBindViewHolder(viewHolder: MyVideosAdapter.ViewHolder, position: Int) {
-        if(viewHolder.itemViewType==VIDEO_VIEW){
+        if (viewHolder.itemViewType == VIDEO_VIEW) {
             val videoData: MyVideosItem = this.mContacts!![position]
 
             val viewTV = viewHolder.viewTV
 
             val last = (100..9000).shuffled().last()
-            viewTV.text =last.toString()
-            val thumbnailIV=viewHolder.thumbnailIV
+            viewTV.text = last.toString()
+            val thumbnailIV = viewHolder.thumbnailIV
 
-            Picasso.with(viewHolder.thumbnailIV.context)
-                .load(videoData.url)
-                .into(thumbnailIV);
+//            Picasso.with(viewHolder.thumbnailIV.context)
+//                .load(videoData.url)
+//                .into(thumbnailIV);
+
+
+            initializePlayer(videoData, thumbnailIV)
+
         }
+
+
     }
 
     override fun getItemCount(): Int {
@@ -55,11 +72,72 @@ class MyVideosAdapter(private val mContacts: MutableList<MyVideosItem>?= mutable
     }
 
     override fun getItemViewType(position: Int): Int {
-        if (position  == 0) {
+        if (position == 0) {
             return UPLOAD_VIEW
         } else {
             return VIDEO_VIEW
 
         }
     }
+
+    private fun initializePlayer(
+        data: MyVideosItem,
+        exoplayerView: PlayerView
+    ) {
+
+
+//        exoplayerView.outlineProvider = object : ViewOutlineProvider() {
+//            override fun getOutline(view: View, outline: Outline) {
+//                outline.setRoundRect(0, 0, view.width, view.height, 12f)
+//            }
+//        }
+
+//        exoplayerView.clipToOutline = true
+
+        var simpleExoplayer: SimpleExoPlayer = SimpleExoPlayer.Builder(context).build()
+//        val randomUrl = data.url
+        val randomUrl = "https://html5demos.com/assets/dizzy.mp4"
+        randomUrl?.let { preparePlayer(it, "default", simpleExoplayer) }
+
+
+//        val randomUrl = urlList.random()
+//        preparePlayer(randomUrl.first, randomUrl.second)
+        exoplayerView.player = simpleExoplayer
+        simpleExoplayer.seekTo(playbackPosition)
+        // todo
+//        simpleExoplayer.playWhenReady = true
+//        simpleExoplayer.addListener(this)
+    }
+
+    private fun preparePlayer(
+        videoUrl: String,
+        type: String,
+        simpleExoplayer: SimpleExoPlayer
+
+    ) {
+        val uri = Uri.parse(videoUrl)
+        val mediaSource = buildMediaSource(uri, type)
+        simpleExoplayer.prepare(mediaSource)
+    }
+
+    private fun releasePlayer() {
+//        playbackPosition = simpleExoplayer.currentPosition
+//        simpleExoplayer.release()
+    }
+
+    private fun buildMediaSource(uri: Uri, type: String): MediaSource {
+        return if (type == "dash") {
+            DashMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(uri)
+        } else {
+            ProgressiveMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(uri)
+        }
+    }
+
+    private val dataSourceFactory: DataSource.Factory by lazy {
+        DefaultDataSourceFactory(context as Context, "exoplayer-sample")
+    }
+
+
 }

@@ -53,12 +53,11 @@ class MyVideosFragment : Fragment() {
     private fun initRecyclerView(myVideos: MutableList<MyVideosItem>) {
         var extra: MyVideosItem = MyVideosItem()
         myVideos.add(0, extra)
-        val adapter = MyVideosAdapter(myVideos)
+        val adapter = context?.let { MyVideosAdapter(it, myVideos) }
         messageRV.adapter = adapter
         messageRV.layoutManager = GridLayoutManager(context, 3)
 
     }
-
 
     companion object {
         fun newInstance(): MyVideosFragment? {
