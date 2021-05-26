@@ -144,7 +144,8 @@ class StoryFragment : Fragment(), Player.EventListener {
 //        preparePlayer(randomUrl.first, randomUrl.second)
         exoplayerView.player = simpleExoplayer
         simpleExoplayer.seekTo(playbackPosition)
-        simpleExoplayer.playWhenReady = true
+        //todo
+//        simpleExoplayer.playWhenReady = true
         simpleExoplayer.addListener(this)
     }
 
@@ -188,8 +189,8 @@ class StoryFragment : Fragment(), Player.EventListener {
     }
 
     private fun startPlayer() {
-        simpleExoplayer?.playWhenReady = true
-        simpleExoplayer?.playbackState
+//        simpleExoplayer?.playWhenReady = true
+//        simpleExoplayer?.playbackState
     }
 
     override fun onPlayerError(error: ExoPlaybackException) {
