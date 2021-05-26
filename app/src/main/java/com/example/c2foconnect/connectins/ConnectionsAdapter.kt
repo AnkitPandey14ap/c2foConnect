@@ -42,7 +42,7 @@ class ConnectionsAdapter(private val connections: MutableList<AllConnectionsData
         viewHolder.itemView.setOnClickListener {
             ActivityHelper.openChatActivity(
                 viewHolder.itemView.context as Activity,
-                connections[position].chatId,connections[position].user.name,connections[position].user.profileImageUrl
+                connections[position].chatId,connections[position].user.name,connections[position].user.profileImageUrl,connections[position].userId
             )
         }
     }

@@ -135,7 +135,8 @@ class StoryFragment : Fragment(), Player.EventListener {
         exoplayerView.clipToOutline = true
 
         simpleExoplayer = SimpleExoPlayer.Builder(activity as Context).build()
-        val randomUrl = data.url
+//        val randomUrl = data.url
+        val randomUrl = "https://html5demos.com/assets/dizzy.mp4"
         randomUrl?.let { preparePlayer(it, "default") }
 
 
@@ -143,7 +144,7 @@ class StoryFragment : Fragment(), Player.EventListener {
 //        preparePlayer(randomUrl.first, randomUrl.second)
         exoplayerView.player = simpleExoplayer
         simpleExoplayer.seekTo(playbackPosition)
-        simpleExoplayer.playWhenReady = true
+//        simpleExoplayer.playWhenReady = true
         simpleExoplayer.addListener(this)
     }
 
@@ -217,7 +218,7 @@ class StoryFragment : Fragment(), Player.EventListener {
                     initialiseChatResponse?.data?.id?.let {
                         ActivityHelper.openChatActivity(
                             context as Activity,
-                            it, "send Name", "url"
+                            it, "send Name", "url", "connections[position].id"
                         )
                     }
 

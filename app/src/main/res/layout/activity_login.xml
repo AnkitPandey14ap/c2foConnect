@@ -53,17 +53,19 @@
             android:paddingVertical="8dp"
             android:paddingHorizontal="20dp"/>
 
-        <Button
+        <TextView
             android:id="@+id/signinBTN"
+            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="48dp"
             android:layout_marginTop="104dp"
+            android:backgroundTint="@color/purple_500"
             android:background="@drawable/corner_36_green"
-            android:textSize="16sp"
-            android:textColor="#ffffff"
             android:gravity="center"
-            android:text="@string/sign_in" />
+            android:text="@string/sign_in"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

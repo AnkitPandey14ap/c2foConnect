@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.BFirebase
 import com.example.c2foconnect.R
+import com.example.c2foconnect.api.Api
 import com.example.c2foconnect.helper.*
 import com.example.c2foconnect.video.model.ChatMessageModal
 import com.example.c2foconnect.video.model.User
 import com.jakewharton.rxbinding.view.RxView
 import kotlinx.android.synthetic.main.activity_chat.*
-import kotlinx.android.synthetic.main.activity_chat.clientNameTV
-import kotlinx.android.synthetic.main.item_story.*
+import retrofit.RetrofitError
+import retrofit.client.Response
 import java.util.concurrent.TimeUnit
 
 
@@ -37,18 +38,19 @@ class ChatActivity : AppCompatActivity(), ChatCallBack {
         val connectionId = bundle?.getString(CONNECTION_ID, "78364873648372")
         val clientName = bundle?.getString(CLIENT_NAME, "Client")
         val clientProfileUrl = bundle?.getString(CLIENT_PROFILE_URL, "")
+        val clientId = bundle?.getString(CLIENT_ID, "")
 
         user = BPreference.getUser(this)!!
         firebase = BFirebase(connectionId!!)
         firebase.subscribeRealTimeDatabase(this)
 
 
-        initUI(clientName, clientProfileUrl)
+        initUI(clientId, clientName, clientProfileUrl)
 
 
     }
 
-    private fun initUI(clientName: String?, clientProfileUrl: String?) {
+    private fun initUI(clientId: String?, clientName: String?, clientProfileUrl: String?) {
         clientNameTV.text = clientName
         clientProfileUrl?.let { ImageHelper.setRoundImage(this, clientProfileIV, it, 72) }
         initChatListUI()
@@ -57,14 +59,38 @@ class ChatActivity : AppCompatActivity(), ChatCallBack {
             .subscribe { empty: Void? ->
                 val text = msgET.text.toString().trim()
                 msgET.setText("")
-                sendChatMessage(text)
+                clientId?.let { sendChatMessage(it, text) }
             }
     }
 
-    private fun sendChatMessage(text: String) {
+    private fun sendChatMessage(clientId: String, text: String) {
         if (!BUtility.isStringEmpty(text)) {
+            sendMsgOnServer(text, user.id, clientId)
             firebase.sendMessage(text, user.id, this)
         }
+    }
+
+    private fun sendMsgOnServer(text: String, id: String, clientId: String) {
+        Log.i(TAG, "sendMsgOnServer: "+text+" "+id+" "+clientId)
+        Api.getClient().sendMessage(
+            id,
+            clientId,
+            text,
+            object : retrofit.Callback<String?> {
+                override fun success(
+                    initialiseChatResponse: String?,
+                    response: Response
+                ) {
+                    Log.i(TAG, "sendMsgOnServer success: ")
+
+                }
+
+                override fun failure(error: RetrofitError) {
+                    Log.i(TAG, "sendMsgOnServer failure: $error.toString()")
+                }
+
+            })
+
     }
 
     private fun initChatListUI() {
@@ -93,9 +119,11 @@ class ChatActivity : AppCompatActivity(), ChatCallBack {
         BToastHelper.somethingWentWrong(this)
     }
 
+
     companion object {
         val CONNECTION_ID = "connection_id"
         val CLIENT_NAME = "client_name"
         val CLIENT_PROFILE_URL = "client_profile_url"
+        val CLIENT_ID = "client_id"
     }
 }

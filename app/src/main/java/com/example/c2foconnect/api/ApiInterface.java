@@ -15,16 +15,32 @@ import retrofit.http.Query;
 public interface ApiInterface {
 
     @FormUrlEncoded // annotation used in POST type requests
+    @POST("/cuser/fcm")     // API's endpoints
+    public void registerFcmToken(@Field("id") String id,
+                             @Field("fcmId") String fcmId,
+                             Callback<UserResponse> callback);
+
+    @FormUrlEncoded // annotation used in POST type requests
     @POST("/cuser/login")     // API's endpoints
     public void registration(@Field("email") String email,
                              @Field("password") String password,
                              Callback<UserResponse> callback);
+
+
 
     @FormUrlEncoded // annotation used in POST type requests
     @POST("/chat")     // API's endpoints
     public void initialiseChat(@Field("selfUserId") String selfUserId,
                                @Field("otherUserId") String otherUserId,
                                Callback<InitialiseChatResponse> callback);
+
+    @FormUrlEncoded // annotation used in POST type requests
+    @POST("/cuser/sendMessage")     // API's endpoints
+    public void sendMessage(@Field("selfUserId") String selfUserId,
+                               @Field("otherUserId") String otherUserId,
+                               @Field("message") String message,
+                               Callback<String> callback);
+
 
     // API's endpoints
     @GET("/cuser")
