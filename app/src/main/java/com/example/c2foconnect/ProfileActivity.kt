@@ -5,13 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.marginBottom
 import com.example.c2foconnect.base.BaseActivity
 import com.example.c2foconnect.helper.ActivityHelper
 import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.helper.ImageHelper
 import com.example.c2foconnect.video.model.User
+import com.example.c2foconnect.videos.VideoActivity
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.activity_profile.*
@@ -60,6 +59,17 @@ class ProfileActivity : BaseActivity() {
         logoutTV.setOnClickListener {
             BPreference.logout(this)
             triggerRebirth(this)
+        }
+
+        closeIV.setOnClickListener {
+            if (!isTaskRoot) {
+                super.onBackPressed()
+            } else {
+                val intent = Intent(this, VideoActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            }
         }
     }
 

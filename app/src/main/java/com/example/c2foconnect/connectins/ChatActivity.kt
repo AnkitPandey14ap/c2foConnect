@@ -62,6 +62,9 @@ class ChatActivity : BaseActivity(), ChatCallBack {
                 msgET.setText("")
                 clientId?.let { sendChatMessage(it, text) }
             }
+        backIV.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun sendChatMessage(clientId: String, text: String) {

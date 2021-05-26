@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.api.Api
@@ -16,6 +15,7 @@ import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.video.model.AllConnectionsDataItem
 import com.example.c2foconnect.video.model.AllConnectionsResponse
 import com.example.c2foconnect.videos.VideoActivity
+import kotlinx.android.synthetic.main.activity_connections.*
 import retrofit.RetrofitError
 import retrofit.client.Response
 
@@ -31,6 +31,10 @@ class ConnectionsActivity : BaseActivity() {
     }
 
     private fun initUI(connectionsData: MutableList<AllConnectionsDataItem>) {
+
+        backIV.setOnClickListener {
+            onBackPressed()
+        }
 
         if (connectionsData != null) {
             val rvContacts = findViewById<View>(R.id.connectionRV) as RecyclerView
