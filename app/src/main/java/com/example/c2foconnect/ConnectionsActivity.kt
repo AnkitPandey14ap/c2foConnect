@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.api.Api
+import com.example.c2foconnect.base.BaseActivity
 import com.example.c2foconnect.connectins.ConnectionsAdapter
 import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.video.model.AllConnectionsDataItem
@@ -19,7 +20,7 @@ import retrofit.RetrofitError
 import retrofit.client.Response
 
 
-class ConnectionsActivity : AppCompatActivity() {
+class ConnectionsActivity : BaseActivity() {
     val TAG = "ConnectionsActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

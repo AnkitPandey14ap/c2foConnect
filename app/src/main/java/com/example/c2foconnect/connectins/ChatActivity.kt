@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.c2foconnect.BFirebase
 import com.example.c2foconnect.R
 import com.example.c2foconnect.api.Api
+import com.example.c2foconnect.base.BaseActivity
 import com.example.c2foconnect.helper.*
 import com.example.c2foconnect.video.model.ChatMessageModal
 import com.example.c2foconnect.video.model.User
@@ -19,7 +20,7 @@ import retrofit.client.Response
 import java.util.concurrent.TimeUnit
 
 
-class ChatActivity : AppCompatActivity(), ChatCallBack {
+class ChatActivity : BaseActivity(), ChatCallBack {
 
     private lateinit var rvMessage: RecyclerView
     private lateinit var adapter: MessageAdapter

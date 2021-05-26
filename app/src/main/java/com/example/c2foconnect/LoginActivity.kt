@@ -85,6 +85,7 @@ class LoginActivity : BaseActivity() {
             user
         )
         ActivityHelper.openProfileActivity(this)
+        finish()
 
     }
 

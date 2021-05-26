@@ -7,10 +7,12 @@ import android.view.WindowManager
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.c2foconnect.R
 
 abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        changeStatusBarColor()
         setupContentWindow()
     }
 
@@ -21,9 +23,9 @@ abstract class BaseActivity : AppCompatActivity() {
 //        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
     }
 
-    fun changeStatusBarColor(@ColorRes barColor: Int) {
+    fun changeStatusBarColor() {
         window.apply {
-            statusBarColor = getColorFromRes(barColor)
+            statusBarColor = getColorFromRes(R.color.purple_200)
         }
     }
 

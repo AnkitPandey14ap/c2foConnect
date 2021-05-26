@@ -54,7 +54,6 @@ class ActivityHelper {
         public fun openProfileActivity(activity: Activity) {
             val intent = Intent(activity, ProfileActivity::class.java)
             activity.startActivity(intent)
-            activity.finish()
         }
     }
 }

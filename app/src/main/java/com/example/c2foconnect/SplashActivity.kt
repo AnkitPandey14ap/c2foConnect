@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.c2foconnect.api.Api
+import com.example.c2foconnect.base.BaseActivity
 import com.example.c2foconnect.helper.ActivityHelper
 import com.example.c2foconnect.helper.BPreference
 import com.example.c2foconnect.helper.BToastHelper
@@ -15,7 +16,7 @@ import retrofit.Callback
 import retrofit.RetrofitError
 import retrofit.client.Response
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
     val TAG = "SplashActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
