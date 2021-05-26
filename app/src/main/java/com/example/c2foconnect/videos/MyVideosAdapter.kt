@@ -25,7 +25,7 @@ class MyVideosAdapter(
 
     val UPLOAD_VIEW = 0
     val VIDEO_VIEW = 1
-    private var playbackPosition: Long = 0
+    private var playbackPosition: Long = 1
 
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
@@ -95,18 +95,14 @@ class MyVideosAdapter(
 //        exoplayerView.clipToOutline = true
 
         var simpleExoplayer: SimpleExoPlayer = SimpleExoPlayer.Builder(context).build()
-//        val randomUrl = data.url
-        val randomUrl = "https://html5demos.com/assets/dizzy.mp4"
+        val randomUrl = data.url
+//        val randomUrl = "https://html5demos.com/assets/dizzy.mp4"
         randomUrl?.let { preparePlayer(it, "default", simpleExoplayer) }
 
-
-//        val randomUrl = urlList.random()
-//        preparePlayer(randomUrl.first, randomUrl.second)
         exoplayerView.player = simpleExoplayer
         simpleExoplayer.seekTo(playbackPosition)
-        // todo
 //        simpleExoplayer.playWhenReady = true
-//        simpleExoplayer.addListener(this)
+//        simpleExoplayer?.playbackState
     }
 
     private fun preparePlayer(
