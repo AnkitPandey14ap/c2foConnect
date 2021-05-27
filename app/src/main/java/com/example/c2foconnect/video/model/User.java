@@ -47,6 +47,36 @@ public class User {
 	@SerializedName("email")
 	private String email;
 
+	@SerializedName("industry")
+	private String industry;
+
+	@SerializedName("serviceArea")
+	private String serviceArea;
+
+
+	@SerializedName("annualRevenue")
+	private String annualRevenue;
+
+	@SerializedName("numberOfEmployees")
+	private String numberOfEmployees;
+
+	@SerializedName("yearOfEstablishment")
+	private String yearOfEstablishment;
+
+	@SerializedName("ceo")
+	private String ceo;
+
+	@SerializedName("officeAddress")
+	private String officeAddress;
+
+	@SerializedName("website")
+	private String website;
+
+	@SerializedName("coverImageUrl")
+	private String coverImageUrl;
+
+
+
 	public String getAddress(){
 		return address;
 	}
@@ -100,5 +130,41 @@ public class User {
 
 	public String getEmail(){
 		return email;
+	}
+
+	public String getIndustry() {
+		return industry;
+	}
+
+	public String getServiceArea() {
+		return serviceArea;
+	}
+
+	public String getAnnualRevenue() {
+		return annualRevenue;
+	}
+
+	public String getNumberOfEmployees() {
+		return numberOfEmployees;
+	}
+
+	public String getYearOfEstablishment() {
+		return yearOfEstablishment;
+	}
+
+	public String getCeo() {
+		return ceo;
+	}
+
+	public String getOfficeAddress() {
+		return officeAddress;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public String getCoverImageUrl() {
+		return coverImageUrl;
 	}
 }

@@ -49,6 +49,16 @@ class ProfileActivity : BaseActivity() {
         user.products.forEach {
             addChip(it, productsChipGroup)
         }
+
+        industryET.setText(user.industry)
+        serviceAreaET.setText(user.serviceArea)
+        annualRevenueET.setText(user.annualRevenue)
+        numberOfEmployeesET.setText(user.numberOfEmployees)
+        yearOfEstablishmentET.setText(user.yearOfEstablishment)
+        ceoET.setText(user.ceo)
+        officeAddressET.setText(user.officeAddress)
+        websiteET.setText(user.website)
+
     }
 
     private fun initListeners() {
