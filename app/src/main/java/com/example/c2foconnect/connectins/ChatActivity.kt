@@ -77,6 +77,12 @@ class ChatActivity : BaseActivity(), ChatCallBack {
         backIV.setOnClickListener {
             onBackPressed()
         }
+
+        clientNameTV.setOnClickListener {
+            ActivityHelper.openClientProfileActivity(this,clientId)
+        }
+
+
         callIV.setOnClickListener {
             startActivity(
                 Intent(

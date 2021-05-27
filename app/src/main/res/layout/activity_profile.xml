@@ -38,6 +38,7 @@
                     android:src="@drawable/ic_close" />
 
                 <TextView
+                    android:id="@+id/headerTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/closeIV"
@@ -63,8 +64,8 @@
                 android:id="@+id/userIV"
                 android:layout_width="122dp"
                 android:layout_height="122dp"
-                android:padding="4dp"
-                android:src="@drawable/corner_60_green" />
+                android:padding="2dp"
+                android:background="@drawable/corner_60_green" />
 
             <TextView
                 android:layout_width="wrap_content"

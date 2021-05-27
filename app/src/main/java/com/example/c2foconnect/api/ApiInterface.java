@@ -3,13 +3,17 @@ package com.example.c2foconnect.api;
 import com.example.c2foconnect.video.model.AllConnectionsResponse;
 import com.example.c2foconnect.video.model.InitialiseChatResponse;
 import com.example.c2foconnect.video.model.StoryResponse;
+import com.example.c2foconnect.video.model.User;
 import com.example.c2foconnect.video.model.UserResponse;
+
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Path;
 import retrofit.http.Query;
 
 public interface ApiInterface {
@@ -42,10 +46,10 @@ public interface ApiInterface {
                                Callback<String> callback);
 
 
-    // API's endpoints
-    @GET("/cuser")
-    public void getUsers(
+    @GET("/cuser/getUser")
+    public void getUsersById(@Query("id") String id,
             Callback<UserResponse> callback);
+
 
     @GET("/cuser/videos")
     public void getStories(@Query("userId") String userId,

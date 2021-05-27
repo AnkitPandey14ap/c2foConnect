@@ -59,5 +59,14 @@ class ActivityHelper {
             val intent = Intent(activity, ProfileActivity::class.java)
             activity.startActivity(intent)
         }
+
+        public fun openClientProfileActivity(
+            activity: Activity,
+            clientId: String?
+        ) {
+            val intent = Intent(activity, ProfileActivity::class.java)
+            intent.putExtra("clientId", clientId)
+            activity.startActivity(intent)
+        }
     }
 }
