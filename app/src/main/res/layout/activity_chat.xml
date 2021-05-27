@@ -9,6 +9,7 @@
         android:id="@+id/headerContainer"
         android:layout_width="match_parent"
         android:layout_height="88dp"
+        android:elevation="10dp"
         android:background="@drawable/shadow"
         android:paddingHorizontal="24dp"
 
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
+            android:textSize="20dp"
             android:layout_toEndOf="@+id/clientProfileIV"
             android:fontFamily="sans-serif"
             android:text="Name"
@@ -103,7 +105,8 @@
             android:background="@drawable/stroke_1_corner_24_grey"
             android:hint="@string/type_a_message"
             android:paddingHorizontal="20dp"
-            android:paddingVertical="8dp" />
+            android:textSize="16dp"
+            android:paddingVertical="12dp" />
 
         <ImageView
             android:id="@+id/sendIV"

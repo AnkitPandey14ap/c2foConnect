@@ -86,16 +86,17 @@ class StoryFragment : Fragment(), Player.EventListener {
     }
 
     private fun initListneres(data: Story?) {
-        connectTV.setOnClickListener({
+        connectTV.setOnClickListener {
             data?.userId?.let { it1 -> initialseConnection(it1) }
-        })
+        }
     }
 
 
     private fun initView(userBean: Story) {
         clientNameTV.text = userBean.userName
+        locationTV.text = userBean.serviceArea
         var tag = ""
-        userBean.tags?.forEach { it -> tag += "$it " }
+        userBean.tags?.forEach { it -> tag += "#$it " }
         clientDiscriptionTV.text = tag
         userBean.userProfileImage?.let { setRoundImage(it) }
     }

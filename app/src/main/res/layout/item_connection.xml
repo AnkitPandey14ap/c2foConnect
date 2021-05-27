@@ -32,6 +32,7 @@
         android:layout_below="@+id/userTV"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
+        android:lines="1"
         android:layout_toStartOf="@+id/newMsgCountTV"
         android:layout_toEndOf="@+id/userIV"
         android:fontFamily="sans-serif"
@@ -60,6 +61,6 @@
         android:layout_below="@+id/userIV"
         android:layout_alignLeft="@+id/msgTV"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="#33b9b9b9" />
 </RelativeLayout>

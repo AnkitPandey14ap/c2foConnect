@@ -7,34 +7,39 @@
     android:weightSum="2.43"
     tools:context=".LoginActivity">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/bg_login">
 
-        <ImageView
-            android:id="@+id/logoIV"
-            android:layout_width="84dp"
-            android:layout_height="84dp"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:background="@drawable/corner_42_white"
-            android:padding="8dp"
-            android:src="@drawable/icon_logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/logoIV"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="@string/connect" />
+            android:layout_centerInParent="true"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/logoIV"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/corner_42_white"
+                android:padding="16dp"
+                android:src="@drawable/icon_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logoIV"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/connect"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
     </RelativeLayout>
 
 
@@ -49,37 +54,70 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/emailET"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="48dp"
                 android:layout_marginTop="76dp"
                 android:background="@drawable/corner_36_white"
-                android:drawableLeft="@drawable/ic_email"
-                android:drawablePadding="16dp"
                 android:elevation="4dp"
                 android:ems="10"
-                android:hint="@string/hint_email"
-                android:inputType="textEmailAddress"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="8dp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
 
-            <EditText
-                android:id="@+id/passwordET"
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_email" />
+
+                <EditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/hint_email"
+                    android:inputType="textEmailAddress"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="48dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/corner_36_white"
-                android:drawableLeft="@drawable/ic_key"
-                android:drawablePadding="16dp"
                 android:elevation="4dp"
                 android:ems="10"
-                android:hint="@string/hint_password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="8dp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_key" />
+
+                <EditText
+                    android:id="@+id/passwordET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="16dp"
+                    android:elevation="4dp"
+                    android:ems="10"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/signinBTN"
@@ -93,13 +131,12 @@
                 android:padding="12dp"
                 android:text="@string/sign_in"
                 android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
@@ -111,19 +148,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"
+                android:text="Don’t have an account ? "
                 android:textColor="#9d9d9d"
                 android:textSize="12sp"
-                android:textStyle="normal"
-                android:text="Don’t have an account ? " />
+                android:textStyle="normal" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"
+                android:text="Register with C2FO"
                 android:textColor="@color/purple_500"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                android:text="Register with C2FO" />
+                android:textStyle="bold" />
         </LinearLayout>
 
 

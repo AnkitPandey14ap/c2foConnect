@@ -21,6 +21,9 @@ class Story: Parcelable {
     @SerializedName("url")
     val url: String? = null
 
+    @SerializedName("serviceArea")
+    val serviceArea: String? = null
+
     @SerializedName("tags")
     val tags: List<String>? = null
 

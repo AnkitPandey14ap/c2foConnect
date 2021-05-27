@@ -4,16 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingVertical="10dp"
     tools:context=".ConnectionsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shadow"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/shadow"
+        android:elevation="10dp"
         android:paddingStart="24dp"
-        android:paddingVertical="12dp">
+        android:paddingVertical="24dp">
 
         <ImageView
             android:id="@+id/backIV"
@@ -29,7 +30,7 @@
             android:fontFamily="sans-serif"
             android:text="Messages"
             android:textColor="#505050"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
     </LinearLayout>
