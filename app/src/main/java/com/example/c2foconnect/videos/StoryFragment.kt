@@ -44,7 +44,7 @@ class StoryFragment : Fragment(), Player.EventListener {
     private lateinit var simpleExoplayer: SimpleExoPlayer
     private var playbackPosition: Long = 0
 //    private val mp4Url = "https://html5demos.com/assets/dizzy.mp4"
-//    private val dashUrl = "https://storage.googleapis.com/wvmedia/clear/vp9/tears/tears_uhd.mpd"
+//    private val dashUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 //    private val urlList = listOf(mp4Url to "default", dashUrl to "dash")
 
     override fun onResume() {
@@ -135,8 +135,8 @@ class StoryFragment : Fragment(), Player.EventListener {
 //        exoplayerView.clipToOutline = true
 
         simpleExoplayer = SimpleExoPlayer.Builder(activity as Context).build()
-        val randomUrl = data.url
-//        val randomUrl = "https://html5demos.com/assets/dizzy.mp4"
+//        val randomUrl = data.url
+        val randomUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         randomUrl?.let { preparePlayer(it, "default") }
 
 
