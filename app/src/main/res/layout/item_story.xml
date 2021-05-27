@@ -36,9 +36,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:layout_toLeftOf="@+id/connectTV"
+            android:ellipsize="marquee"
+            android:singleLine="true"
             android:layout_toRightOf="@+id/clientIV"
             android:fontFamily="sans-serif-medium"
-            android:text="Ratan Tata "
+            android:text="Ratan Tata"
             android:textColor="#e0e0e0"
             android:textSize="20sp"
             android:textStyle="normal" />
@@ -71,8 +74,9 @@
             android:layout_toLeftOf="@+id/connectTV"
             android:layout_toRightOf="@+id/clientIV"
             android:fontFamily="sans-serif"
+            android:maxLines="2"
             android:text="#tatasteel #adani #industry #jio
-#steel #digital #rich"
+#steel #digital #rich k dfkj sdkf sdkfhk sdh fksf kskj fskj hfksfk dkjf dk "
             android:textColor="#e0e0e0"
 
             android:textSize="12sp"

@@ -13,6 +13,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.example.c2foconnect.helper.BPreference;
+import com.example.c2foconnect.video.model.User;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -32,7 +34,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        sendNotification(remoteMessage);
+
+        User user = BPreference.Companion.getUser(this);
+        if(!user.getName().equals(remoteMessage.getData().get("senderName"))){
+            sendNotification(remoteMessage);
+        }
     }
 
     private void sendNotification(RemoteMessage remoteMessage) {

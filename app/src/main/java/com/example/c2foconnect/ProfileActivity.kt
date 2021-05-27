@@ -37,7 +37,7 @@ class ProfileActivity : BaseActivity() {
 
 
         val bundle = intent.extras
-         clientId = bundle?.getString("clientId", "")
+        clientId = bundle?.getString("clientId", "")
 
 
         if (BUtility.isStringEmpty(clientId)) {
@@ -45,10 +45,10 @@ class ProfileActivity : BaseActivity() {
             if (user != null) {
                 initView()
             }
-            initListeners()
         } else {
             fetchClientUser(clientId)
         }
+        initListeners()
 
     }
 
@@ -57,6 +57,8 @@ class ProfileActivity : BaseActivity() {
         if(!BUtility.isStringEmpty(clientId)){
             headerTV.text=user?.name
             logoutTV.visibility=View.GONE
+            saveIV.visibility=View.GONE
+            closeIV.setImageDrawable(resources.getDrawable(R.drawable.ic_left_arrow));
         }
         var user = this.user
         if (user == null)

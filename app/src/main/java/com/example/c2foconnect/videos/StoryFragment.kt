@@ -138,6 +138,7 @@ class StoryFragment : Fragment(), Player.EventListener {
         simpleExoplayer = SimpleExoPlayer.Builder(activity as Context).build()
 //        val randomUrl = data.url
         val randomUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+//        val randomUrl = "https://doc-0c-04-docs.googleusercontent.com/docs/securesc/j8g42j3uhlnfiu1o4mo43of4qncv82ta/2h0qt0rk583shvctaka1hmn6j7kv8pij/1622112225000/13040867074756258301/13040867074756258301/18s2wZh0pLRfySFF-gfMzhfKq0NrZbndG?authuser=0&nonce=bqhtpvk14coro&user=13040867074756258301&hash=ee86bm3snehso6fc84389n8ec7lpvqsv"
         randomUrl?.let { preparePlayer(it, "default") }
 
 
