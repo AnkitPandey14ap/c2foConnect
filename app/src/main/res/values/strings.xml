@@ -121,4 +121,11 @@
     <string name="type_a_message">Type a message...</string>
     <string name="requirements">Requirements</string>
     <string name="products">Products</string>
+    <string name="industry">Industry</string>
+    <string name="service_area">Service Area</string>
+    <string name="annual_revenue">Annual Revenue</string>
+    <string name="number_of_employees">Number Of Employees</string>
+    <string name="year_of_establishment">Year Of Establishment</string>
+    <string name="ceo">CEO</string>
+    <string name="office_address">Office Address</string>
 </resources>

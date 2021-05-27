@@ -20,7 +20,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="12dp"
             android:padding="8dp"
             android:src="@drawable/ic_left_arrow" />
 
@@ -32,20 +32,6 @@
             android:layout_toEndOf="@+id/backIV"
             android:padding="2dp"
             android:background="@drawable/corner_24_grey" />
-
-        <TextView
-            android:id="@+id/clientNameTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="16dp"
-            android:textSize="20dp"
-            android:layout_toEndOf="@+id/clientProfileIV"
-            android:fontFamily="sans-serif"
-            android:text="Name"
-            android:textColor="#505050"
-            android:textStyle="bold" />
-
         <ImageView
             android:id="@+id/callIV"
             android:layout_width="32dp"
@@ -72,6 +58,25 @@
             android:layout_centerVertical="true"
             android:padding="4dp"
             android:src="@drawable/icon_whatsapp" />
+
+        <TextView
+            android:id="@+id/clientNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toRightOf="@+id/callIV"
+            android:layout_toEndOf="@+id/clientProfileIV"
+
+            android:layout_marginEnd="100dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:fontFamily="sans-serif"
+            android:text="Na k jdkd h  dkk dfkgdfkjgdkjgkjf kgdfkgdfk fdkjme"
+            android:textColor="#505050"
+            android:textStyle="bold" />
+
+
 
     </RelativeLayout>
 
@@ -115,7 +120,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_gravity="end"
-            android:background="@drawable/corner_24_grey"
+            android:background="@drawable/corner_24_f1f1f1"
             android:minHeight="48dp"
             android:padding="12dp"
             android:src="@drawable/ic_send" />

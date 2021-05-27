@@ -32,8 +32,8 @@
                     android:id="@+id/closeIV"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:layout_marginEnd="16dp"
                     android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:padding="8dp"
                     android:src="@drawable/ic_close" />
 
@@ -53,8 +53,8 @@
                     android:layout_height="32dp"
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="end"
-                    android:padding="8dp"
                     android:layout_marginEnd="16dp"
+                    android:padding="8dp"
                     android:src="@drawable/ic_check" />
 
             </RelativeLayout>
@@ -94,6 +94,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
                 android:background="@color/grey_f1f1f1" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -109,6 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:maxHeight="120dp"
                     tools:text="Tesla, Inc. is an American electric vehicle and clean
 energy company based in Palo Alto, California. Tesla's
 current products include electric cars, battery energy
@@ -119,61 +121,67 @@ roof tiles, as well as other related products and services." />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
                 android:background="@color/grey_f1f1f1" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:textStyle="normal"
                 android:layout_marginHorizontal="16dp"
-                android:textSize="12sp"
-                android:textColor="#9a9a9a"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif"
                 android:text="@string/requirements"
-                />
+                android:textColor="#9a9a9a"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/requirementsChipGroup"
-                android:layout_marginHorizontal="16dp"
                 android:layout_width="match_parent"
-                app:chipSpacingVertical="2dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                app:chipSpacingVertical="2dp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
                 android:background="@color/grey_f1f1f1" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:textStyle="normal"
                 android:layout_marginHorizontal="16dp"
-                android:textSize="12sp"
-                android:textColor="#9a9a9a"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif"
                 android:text="@string/products"
-                />
+                android:textColor="#9a9a9a"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/productsChipGroup"
-                android:layout_marginHorizontal="16dp"
                 android:layout_width="match_parent"
-                app:chipSpacingVertical="2dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                app:chipSpacingVertical="2dp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
                 android:background="@color/grey_f1f1f1" />
 
-
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneTIL"
+                android:id="@+id/industryTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/phone_number"
+                android:hint="@string/industry"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp">
 
                 <EditText
-                    android:id="@+id/phoneET"
+                    android:id="@+id/industryET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
@@ -183,27 +191,7 @@ roof tiles, as well as other related products and services." />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grey_f1f1f1" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailTIL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/main_contact"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp">
-
-                <EditText
-                    android:id="@+id/emailET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    tools:text="elonMusk@c2fo.com" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
                 android:background="@color/grey_f1f1f1" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -225,13 +213,219 @@ roof tiles, as well as other related products and services." />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
                 android:background="@color/grey_f1f1f1" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/serviceAreaTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/service_area"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/serviceAreaET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="76576587658" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/annualRevenueTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/annual_revenue"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/annualRevenueET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="76576587658" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/numberOfEmployeesTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_of_employees"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/numberOfEmployeesET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="76576587658" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/yearOfEstablishmentTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/year_of_establishment"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/yearOfEstablishmentET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="76576587658" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ceoTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ceo"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/ceoET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="76576587658" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/main_contact"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="elonMusk@c2fo.com" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone_number"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/phoneET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="76576587658" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/officeAddressTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/office_address"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/officeAddressET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="76576587658" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/websiteTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone_number"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <EditText
+                    android:id="@+id/websiteET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text="76576587658" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey_f1f1f1" />
+
+
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/buisinessTypeTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/type_of_business"
+                android:visibility="gone"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp">
 
@@ -247,12 +441,16 @@ roof tiles, as well as other related products and services." />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:visibility="gone"
+                android:layout_marginHorizontal="16dp"
                 android:background="@color/grey_f1f1f1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/geographicalTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
+
                 android:hint="@string/geographical_service_area"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp">
@@ -261,6 +459,8 @@ roof tiles, as well as other related products and services." />
                     android:id="@+id/geographicalET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
+
 
                     android:background="@color/white"
                     tools:text="Kansas City, U.S.A" />
@@ -269,12 +469,15 @@ roof tiles, as well as other related products and services." />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
                 android:background="@color/grey_f1f1f1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/invoiceToolTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
+
                 android:hint="@string/invoice_accounting_tool"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp">
@@ -290,6 +493,9 @@ roof tiles, as well as other related products and services." />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:visibility="gone"
+
                 android:background="@color/grey_f1f1f1" />
 
             <TextView
@@ -298,7 +504,8 @@ roof tiles, as well as other related products and services." />
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:fontFamily="sans-serif"
-                android:paddingVertical="16dp"
+                android:paddingTop="16dp"
+                android:layout_marginBottom="24dp"
                 android:paddingStart="16dp"
                 android:text="@string/logout"
                 android:textColor="#7eab57"
