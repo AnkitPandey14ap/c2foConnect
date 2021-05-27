@@ -21,6 +21,8 @@
         android:layout_toEndOf="@+id/userIV"
         android:fontFamily="sans-serif-medium"
         android:text="Name"
+        android:ellipsize="marquee"
+        android:singleLine="true"
         android:textColor="#505050"
         android:textSize="18sp"
         android:textStyle="normal" />
@@ -52,7 +54,7 @@
         android:background="@drawable/corner_36_green"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:visibility="gone"
+        android:visibility="visible"
         android:text="4"
         android:textColor="#ffffff"
         android:textSize="12sp"

@@ -18,10 +18,10 @@ class ConnectionsAdapter(private val connections: MutableList<AllConnectionsData
     RecyclerView.Adapter<ConnectionsAdapter.ViewHolder>() {
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
-
         val nameTV = itemView.findViewById<TextView>(R.id.userTV)
         val messageTV = itemView.findViewById<TextView>(R.id.msgTV)
         val userIV = itemView.findViewById<ImageView>(R.id.userIV)
+        val newMsgCountTV = itemView.findViewById<TextView>(R.id.newMsgCountTV)
     }
 
     override fun onCreateViewHolder(
@@ -42,15 +42,35 @@ class ConnectionsAdapter(private val connections: MutableList<AllConnectionsData
 
         val messageTV = viewHolder.messageTV
         val userIV = viewHolder.userIV
+        val newMsgCountTV = viewHolder.newMsgCountTV
         messageTV.text = user.email
+        val unreadCount = (-1..2).random()
+        if (unreadCount <= 0) {
+            newMsgCountTV.visibility = View.GONE
+        } else {
+            newMsgCountTV.visibility = View.VISIBLE
+            newMsgCountTV.text = unreadCount.toString()
+        }
 
-        connections[position].user.profileImageUrl?.let { ImageHelper.setRoundImage(userIV.context, userIV, it, 72) }
+        connections[position].user.profileImageUrl?.let {
+            ImageHelper.setRoundImage(
+                userIV.context,
+                userIV,
+                it,
+                72
+            )
+        }
 
 
         viewHolder.itemView.setOnClickListener {
             ActivityHelper.openChatActivity(
                 viewHolder.itemView.context as Activity,
-                connections[position].chatId,connections[position].user.name,connections[position].user.profileImageUrl,connections[position].userId,user.phone,user.email
+                connections[position].chatId,
+                connections[position].user.name,
+                connections[position].user.profileImageUrl,
+                connections[position].userId,
+                user.phone,
+                user.email
             )
         }
     }
