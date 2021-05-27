@@ -41,13 +41,17 @@ class ActivityHelper {
             connectionId: String,
             clientName: String,
             clientProfileUrl: String,
-            clientId: String?
+            clientId: String?,
+            phone: String?,
+            email: String?
         ) {
             val intent = Intent(activity, ChatActivity::class.java)
             intent.putExtra(ChatActivity.CONNECTION_ID, connectionId)
             intent.putExtra(ChatActivity.CLIENT_NAME, clientName)
             intent.putExtra(ChatActivity.CLIENT_PROFILE_URL, clientProfileUrl)
             intent.putExtra(ChatActivity.CLIENT_ID, clientId)
+            intent.putExtra(ChatActivity.PHONE, phone)
+            intent.putExtra(ChatActivity.EMAIL, email)
             activity.startActivity(intent)
         }
 

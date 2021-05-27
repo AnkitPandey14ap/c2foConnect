@@ -221,7 +221,7 @@ class StoryFragment : Fragment(), Player.EventListener {
                         clientUser?.name?.let {
                             ActivityHelper.openChatActivity(
                                 context as Activity,
-                                connectionId, it, clientUser?.profileImageUrl, clientUser?.id
+                                connectionId, it, clientUser?.profileImageUrl, clientUser?.id,clientUser.phone,clientUser.email
                             )
                         }
                     }
