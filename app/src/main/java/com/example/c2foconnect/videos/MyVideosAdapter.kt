@@ -51,7 +51,7 @@ class MyVideosAdapter(
 
             val viewTV = viewHolder.viewTV
 
-            val last = (100..9000).shuffled().last()
+            val last = (10..100).random()
             viewTV.text = last.toString()
             val thumbnailIV = viewHolder.thumbnailIV
 

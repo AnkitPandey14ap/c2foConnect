@@ -45,7 +45,7 @@ class ConnectionsAdapter(private val connections: MutableList<AllConnectionsData
         val newMsgCountTV = viewHolder.newMsgCountTV
         messageTV.text = user.email
         val unreadCount = (-1..2).random()
-        if (unreadCount == 0) {
+        if (unreadCount <= 0) {
             newMsgCountTV.visibility = View.GONE
         } else {
             newMsgCountTV.visibility = View.VISIBLE
